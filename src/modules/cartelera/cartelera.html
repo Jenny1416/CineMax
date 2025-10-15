@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CineMax | Cartelera</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="./cartelera.css">
+</head>
+<body class="user-body">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="../../assets/imagenes/logo.png" alt="CineMax" class="logo-small">
+      </div>
+
+      <nav class="main-nav">
+        <a href="#" class="nav-item active">Cartelera</a>
+        <a href="#" class="nav-item">Horarios</a>
+        <a href="#" class="nav-item">Precios</a>
+        <a href="#" class="nav-item">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search">
+          <input type="text" placeholder="Buscar">
+          <button class="btn-search">🔍</button>
+        </div>
+        <div class="user-icon">Jenny ▾</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero">
+    <img src="/src/assets/img/palomitas.jpg" alt="Banner Palomitas" class="hero-img">
+  </section>
+
+  <main class="container main-content">
+
+    <!-- Cartelera -->
+    <section class="cartelera-section">
+      <h2 class="section-heading">Cartelera</h2>
+      <p class="section-sub">Las mejores películas del año en pantalla.</p>
+
+      <div class="carousel-wrap">
+        <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+        <div class="carousel" id="carteleraCarousel"></div>
+        <button class="carousel-btn next" aria-label="Siguiente">›</button>
+      </div>
+
+      <div class="center-cta">
+        <a href="#" class="btn-primary small">Ver todas las películas</a>
+      </div>
+    </section>
+
+    <!-- Recomendado -->
+    <section class="recomendado-section">
+      <h3 class="recomendado-title">Recomendado para Ti</h3>
+      <div class="recomendado-grid" id="recomendadoGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>CineMax</h4>
+        <p>Disfruta de las películas más esperadas con sonido envolvente, imágenes de alta definición y la mejor experiencia en sala.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="#">Cartelera</a></li>
+          <li><a href="#">Horarios</a></li>
+          <li><a href="#">Recomendado para ti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Horarios</h4>
+        <p>Lunes a Jueves: 2:00pm - 11:00pm</p>
+        <p>Viernes a Domingo: 12:00pm - 12:00am</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Cine Colombia</span>
+      <div class="socials">
+        <span>Síguenos</span>
+        <a href="#" aria-label="facebook">✕</a>
+        <a href="#" aria-label="instagram">○</a>
+        <a href="#" aria-label="twitter">◍</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./cartelera.js"></script>
+</body>
+</html>
