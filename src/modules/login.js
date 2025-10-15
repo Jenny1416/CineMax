@@ -24,9 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const cuenta = cuentas[rol];
             if (cuenta && correo === cuenta.email && password === cuenta.pass) {
-                if (rol === "admin") window.location.href = "Admin.html";
-                if (rol === "cajero") window.location.href = "Cajero.html";
-                if (rol === "usuario") window.location.href = "Usuario.html";
+                if (rol === "admin") window.location.href = "src/modules/usuarios/admin.html";
+                if (rol === "cajero" || rol === "usuario") window.location.href = "cartelera.html";
             } else {
                 alert("Correo o contraseña incorrectos.");
             }
