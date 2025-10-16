@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax Admin</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="admin-header">
+        <div class="header-left">
+            <h1 class="admin-title">CineMax Admin</h1>
+        </div>
+        <div class="header-right">
+            <span class="welcome-text">Bienvenido, Admin user</span>
+            <button class="btn-logout">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                </svg>
+                Cerrar sesión
+            </button>
+        </div>
+    </header>
+
+    <div class="admin-container">
+
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item" data-section="peliculas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                        <line x1="7" y1="2" x2="7" y2="22" />
+                        <line x1="17" y1="2" x2="17" y2="22" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <line x1="2" y1="7" x2="7" y2="7" />
+                        <line x1="2" y1="17" x2="7" y2="17" />
+                        <line x1="17" y1="17" x2="22" y2="17" />
+                        <line x1="17" y1="7" x2="22" y2="7" />
+                    </svg>
+                    Películas
+                </a>
+                <a href="#" class="nav-item" data-section="comidas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                    Comidas
+                </a>
+                <a href="#" class="nav-item" data-section="clientes">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    Clientes
+                </a>
+                <a href="#" class="nav-item" data-section="cajeros">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    Cajeros
+                </a>
+                <a href="#" class="nav-item" data-section="reportes">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                    Reportes
+                </a>
+                <a href="#" class="nav-item" data-section="log">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Log de Accesos
+                </a>
+                <a href="#" class="nav-item" data-section="configuracion">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m18.2 5.2l-4.2-4.2m-6 0l-4.2 4.2" />
+                    </svg>
+                    Configuración
+                </a>
+            </nav>
+        </aside>
+
+
+        <main class="main-content">
+
+
+            <section id="dashboard" class="content-section active">
+                <div class="section-header">
+                    <h2 class="section-title">Dashboard</h2>
+                    <p class="section-subtitle">Resumen general del sistema de cine</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Ventas Totales</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <div class="stat-value">$55.420</div>
+                        <div class="stat-change positive">+501% del mes anterior</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Películas Activas</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                                <line x1="7" y1="2" x2="7" y2="22" />
+                                <line x1="17" y1="2" x2="17" y2="22" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-change">En cartelera actualmente</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Clientes</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="stat-value">4</div>
+                        <div class="stat-change positive">+12% este mes</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Cajeros Activos</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-change">Personal disponible</div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <div class="activity-header">
+                        <h3 class="activity-title">Actividad Reciente</h3>
+                        <p class="activity-subtitle">Últimos accesos al sistema</p>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-dot red"></span>
+                            <span class="activity-text">Nueva película "DEMON SLAYER: KIMETSU NO YAIBA" agregada al
+                                sistema</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-dot red"></span>
+                            <span class="activity-text">Cliente María García promocionado a VIP</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-dot red"></span>
+                            <span class="activity-text">Nuevo cajero Juan Pérez agregado al sistema</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            Películas Section
+            <section id="peliculas" class="content-section">
+                <div class="section-header-with-action">
+                    <div class="section-header">
+                        <h2 class="section-title">Gestión de Películas</h2>
+                        <p class="section-subtitle">Administre el catálogo de películas de CineMax</p>
+                    </div>
+                    <button class="btn-nueva-pelicula">Nueva Película</button>
+                </div>
+
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar Películas..." id="searchMovies">
+                    <span class="movie-count">3 película(s)</span>
+                </div>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <span class="status-badge active">Activa</span>
+                            <img src="/placeholder.svg?height=400&width=300" alt="Demon Slayer">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">Demon Slayer Kimetsu no Yaiba The Movie: Infinity Castle</h3>
+                            <p class="movie-detail"><strong>Título en español:</strong> Demon Slayer: Kimetsu no Yaiba -
+                                Castillo Infinito</p>
+                            <p class="movie-detail"><strong>Estreno:</strong> 11-Sept-2025</p>
+                            <p class="movie-detail"><strong>Género:</strong> Acción, Animación, Aventura, Fantasía,
+                                Suspenso</p>
+                            <div class="movie-actions">
+                                <button class="btn-editar">Editar</button>
+                                <button class="btn-eliminar">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path>
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <span class="status-badge active">Activa</span>
+                            <img src="/placeholder.svg?height=400&width=300" alt="The Fantastic Four">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">The Fantastic Four: First Steps</h3>
+                            <p class="movie-detail"><strong>Título en español:</strong> Los 4 Fantásticos: Primeros
+                                Pasos</p>
+                            <p class="movie-detail"><strong>Estreno:</strong> 24-Jul-2025</p>
+                            <p class="movie-detail"><strong>Género:</strong> Acción, Aventura, Ciencia Ficción</p>
+                            <div class="movie-actions">
+                                <button class="btn-editar">Editar</button>
+                                <button class="btn-eliminar">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path>
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <span class="status-badge inactive">Inactiva</span>
+                            <img src="/placeholder.svg?height=400&width=300" alt="Pompoko">
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">Pompoko</h3>
+                            <p class="movie-detail"><strong>Título en español:</strong> Pompoko</p>
+                            <p class="movie-detail"><strong>Estreno:</strong> 11-Sept-2025</p>
+                            <p class="movie-detail"><strong>Género:</strong> Acción, Animación, Aventura, Fantasía</p>
+                            <div class="movie-actions">
+                                <button class="btn-editar">Editar</button>
+                                <button class="btn-eliminar">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                        </path>
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="comidas" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Gestión de Comida</h2>
+                    <p class="section-subtitle">Las opciones mas deliciosas para acompañarte</p>
+                </div>
+
+                <div class="food-search-container">
+                    <input type="text" class="food-search-input" placeholder="Buscar Comida..." id="searchFood">
+                </div>
+
+                <div class="food-table-container">
+                    <table class="food-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Ventas</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="food-name">Palomitas medianas</td>
+                                <td>Palomitas</td>
+                                <td class="food-price">$8</td>
+                                <td class="food-sales">245</td>
+                                <td><span class="food-status active">Activo</span></td>
+                                <td class="food-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="food-name">Refresco Grande</td>
+                                <td>Bebidas</td>
+                                <td class="food-price">$8</td>
+                                <td class="food-sales">198</td>
+                                <td><span class="food-status active">Activo</span></td>
+                                <td class="food-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="food-name">Nachos con Queso</td>
+                                <td>Snacks</td>
+                                <td class="food-price">$9</td>
+                                <td class="food-sales">156</td>
+                                <td><span class="food-status active">Activo</span></td>
+                                <td class="food-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="food-name">M&M's</td>
+                                <td>Dulces</td>
+                                <td class="food-price">$5</td>
+                                <td class="food-sales">134</td>
+                                <td><span class="food-status active">Activo</span></td>
+                                <td class="food-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="food-name">Sundae de chocolate</td>
+                                <td>Helados</td>
+                                <td class="food-price">$7</td>
+                                <td class="food-sales">89</td>
+                                <td><span class="food-status active">Activo</span></td>
+                                <td class="food-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="clientes" class="content-section">
+                <div class="section-header-with-action">
+                    <div class="section-header">
+                        <h2 class="section-title">Gestión de Clientes</h2>
+                        <p class="section-subtitle">Administre la base de datos de clientes</p>
+                    </div>
+                    <button class="btn-nuevo-cliente">Nuevo Cliente</button>
+                </div>
+
+                <div class="client-stats-grid">
+                    <div class="client-stat-card">
+                        <div class="client-stat-header">
+                            <span class="client-stat-label">Total Clientes</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="client-stat-value">4</div>
+                        <div class="client-stat-desc">Clientes registrados</div>
+                    </div>
+
+                    <div class="client-stat-card vip">
+                        <div class="client-stat-header">
+                            <span class="client-stat-label">Clientes VIP</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <div class="client-stat-value">2</div>
+                        <div class="client-stat-desc">33.3% del total</div>
+                    </div>
+
+                    <div class="client-stat-card">
+                        <div class="client-stat-header">
+                            <span class="client-stat-label">Clientes Regulares</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="client-stat-value">3</div>
+                        <div class="client-stat-desc">66.7% del total</div>
+                    </div>
+                </div>
+
+                <div class="client-search-container">
+                    <input type="text" class="client-search-input" placeholder="Buscar Clientes..." id="searchClients">
+                    <span class="client-count">4 cliente(s)</span>
+                </div>
+
+
+                <div class="client-table-container">
+                    <table class="client-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Tipo</th>
+                                <th>Compras</th>
+                                <th>Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="client-name">María García</td>
+                                <td>maria@email.com</td>
+                                <td><span class="client-type vip">VIP</span></td>
+                                <td class="client-purchases">15</td>
+                                <td>14/1/2024</td>
+                                <td class="client-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="client-name">Carlos López</td>
+                                <td>carlos@email.com</td>
+                                <td><span class="client-type normal">Normal</span></td>
+                                <td class="client-purchases">8</td>
+                                <td>19/8/2023</td>
+                                <td class="client-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="client-name">Ana Rodríguez</td>
+                                <td>ana@email.com</td>
+                                <td><span class="client-type vip">VIP</span></td>
+                                <td class="client-purchases">22</td>
+                                <td>9/3/2024</td>
+                                <td class="client-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="client-name">Pedro Martín</td>
+                                <td>pedro@email.com</td>
+                                <td><span class="client-type normal">Normal</span></td>
+                                <td class="client-purchases">5</td>
+                                <td>15/3/2024</td>
+                                <td class="client-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <section id="cajeros" class="content-section">
+                <div class="section-header-with-action">
+                    <div class="section-header">
+                        <h2 class="section-title">Gestión de Cajeros</h2>
+                        <p class="section-subtitle">Administre el personal de caja del cine</p>
+                    </div>
+                    <button class="btn-nuevo-cajero">Nuevo Cajero</button>
+                </div>
+
+
+                <div class="cajero-stats-grid">
+                    <div class="cajero-stat-card">
+                        <div class="cajero-stat-header">
+                            <span class="cajero-stat-label">Total Cajeros</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <div class="cajero-stat-value">2</div>
+                        <div class="cajero-stat-desc">Cajeros registrados</div>
+                    </div>
+
+                    <div class="cajero-stat-card active">
+                        <div class="cajero-stat-header">
+                            <span class="cajero-stat-label">Cajeros Activos</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div class="cajero-stat-value">2</div>
+                        <div class="cajero-stat-desc">66.7% del total</div>
+                    </div>
+
+                    <div class="cajero-stat-card inactive">
+                        <div class="cajero-stat-header">
+                            <span class="cajero-stat-label">Cajeros Inactivos</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <div class="cajero-stat-value">0</div>
+                        <div class="cajero-stat-desc">33.7% del total</div>
+                    </div>
+                </div>
+
+                <div class="cajero-search-container">
+                    <input type="text" class="cajero-search-input" placeholder="Buscar Cajeros..." id="searchCajeros">
+                    <span class="cajero-count">2 cajero(s)</span>
+                </div>
+
+
+                <div class="cajero-table-container">
+                    <table class="cajero-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Estado</th>
+                                <th>Teléfono</th>
+                                <th>Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cajero-name">María García</td>
+                                <td>maria@email.com</td>
+                                <td><span class="cajero-status active">Activo</span></td>
+                                <td class="cajero-phone">+57 310 555 0123</td>
+                                <td>31/5/2023</td>
+                                <td class="cajero-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cajero-name">Carlos López</td>
+                                <td>carlos@email.com</td>
+                                <td><span class="cajero-status active">Activo</span></td>
+                                <td class="cajero-phone">+57 310 555 0123</td>
+                                <td>14/9/2023</td>
+                                <td class="cajero-actions">
+                                    <button class="btn-icon-edit" title="Editar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                        </svg>
+                                    </button>
+                                    <button class="btn-icon-delete" title="Eliminar">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="reportes" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Reportes y Análisis</h2>
+                    <p class="section-subtitle">Estadísticas detalladas del sistema CineMax</p>
+                </div>
+
+
+                <div class="report-filters">
+                    <div class="filter-group">
+                        <label for="dateFrom">Desde:</label>
+                        <input type="date" id="dateFrom" class="date-input">
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateTo">Hasta:</label>
+                        <input type="date" id="dateTo" class="date-input">
+                    </div>
+                    <button class="btn-filter">Filtrar</button>
+                    <button class="btn-export">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Exportar PDF
+                    </button>
+                </div>
+
+
+                <div class="report-stats-grid">
+                    <div class="report-stat-card">
+                        <div class="report-stat-icon revenue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <div class="report-stat-content">
+                            <div class="report-stat-label">Ingresos Totales</div>
+                            <div class="report-stat-value">$125,450</div>
+                            <div class="report-stat-change positive">+18.5% vs mes anterior</div>
+                        </div>
+                    </div>
+
+                    <div class="report-stat-card">
+                        <div class="report-stat-icon tickets">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                                <path d="M13 5v2" />
+                                <path d="M13 17v2" />
+                                <path d="M13 11v2" />
+                            </svg>
+                        </div>
+                        <div class="report-stat-content">
+                            <div class="report-stat-label">Entradas Vendidas</div>
+                            <div class="report-stat-value">1,847</div>
+                            <div class="report-stat-change positive">+12.3% vs mes anterior</div>
+                        </div>
+                    </div>
+
+                    <div class="report-stat-card">
+                        <div class="report-stat-icon food">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                                <line x1="6" y1="1" x2="6" y2="4" />
+                                <line x1="10" y1="1" x2="10" y2="4" />
+                                <line x1="14" y1="1" x2="14" y2="4" />
+                            </svg>
+                        </div>
+                        <div class="report-stat-content">
+                            <div class="report-stat-label">Ventas Comida</div>
+                            <div class="report-stat-value">$38,920</div>
+                            <div class="report-stat-change positive">+25.7% vs mes anterior</div>
+                        </div>
+                    </div>
+
+                    <div class="report-stat-card">
+                        <div class="report-stat-icon average">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </div>
+                        <div class="report-stat-content">
+                            <div class="report-stat-label">Ticket Promedio</div>
+                            <div class="report-stat-value">$67.90</div>
+                            <div class="report-stat-change positive">+5.2% vs mes anterior</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Ventas por Día</h3>
+                            <select class="chart-select">
+                                <option>Últimos 7 días</option>
+                                <option>Últimos 30 días</option>
+                                <option>Últimos 3 meses</option>
+                            </select>
+                        </div>
+                        <div class="chart-placeholder">
+                            <svg viewBox="0 0 400 200" class="bar-chart">
+                                <rect x="20" y="120" width="40" height="80" fill="#d40000" opacity="0.8" />
+                                <rect x="70" y="100" width="40" height="100" fill="#d40000" opacity="0.8" />
+                                <rect x="120" y="80" width="40" height="120" fill="#d40000" opacity="0.8" />
+                                <rect x="170" y="60" width="40" height="140" fill="#d40000" />
+                                <rect x="220" y="90" width="40" height="110" fill="#d40000" opacity="0.8" />
+                                <rect x="270" y="110" width="40" height="90" fill="#d40000" opacity="0.8" />
+                                <rect x="320" y="70" width="40" height="130" fill="#d40000" opacity="0.8" />
+                                <line x1="0" y1="200" x2="400" y2="200" stroke="#e0e0e0" stroke-width="2" />
+                                <text x="35" y="220" font-size="12" fill="#666">Lun</text>
+                                <text x="85" y="220" font-size="12" fill="#666">Mar</text>
+                                <text x="135" y="220" font-size="12" fill="#666">Mié</text>
+                                <text x="185" y="220" font-size="12" fill="#666">Jue</text>
+                                <text x="235" y="220" font-size="12" fill="#666">Vie</text>
+                                <text x="285" y="220" font-size="12" fill="#666">Sáb</text>
+                                <text x="335" y="220" font-size="12" fill="#666">Dom</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Películas Más Vistas</h3>
+                        </div>
+                        <div class="top-movies-list">
+                            <div class="top-movie-item">
+                                <div class="movie-rank">1</div>
+                                <div class="movie-info-compact">
+                                    <div class="movie-name">Demon Slayer</div>
+                                    <div class="movie-tickets">487 entradas</div>
+                                </div>
+                                <div class="movie-revenue">$18,450</div>
+                            </div>
+                            <div class="top-movie-item">
+                                <div class="movie-rank">2</div>
+                                <div class="movie-info-compact">
+                                    <div class="movie-name">The Fantastic Four</div>
+                                    <div class="movie-tickets">392 entradas</div>
+                                </div>
+                                <div class="movie-revenue">$14,880</div>
+                            </div>
+                            <div class="top-movie-item">
+                                <div class="movie-rank">3</div>
+                                <div class="movie-info-compact">
+                                    <div class="movie-name">Pompoko</div>
+                                    <div class="movie-tickets">245 entradas</div>
+                                </div>
+                                <div class="movie-revenue">$9,310</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="distribution-section">
+                    <h3 class="section-subtitle-bold">Distribución de Ingresos</h3>
+                    <div class="distribution-grid">
+                        <div class="distribution-item">
+                            <div class="distribution-bar">
+                                <div class="distribution-fill" style="width: 68%"></div>
+                            </div>
+                            <div class="distribution-info">
+                                <span class="distribution-label">Entradas</span>
+                                <span class="distribution-value">68% - $85,506</span>
+                            </div>
+                        </div>
+                        <div class="distribution-item">
+                            <div class="distribution-bar">
+                                <div class="distribution-fill" style="width: 31%"></div>
+                            </div>
+                            <div class="distribution-info">
+                                <span class="distribution-label">Comida</span>
+                                <span class="distribution-value">31% - $38,920</span>
+                            </div>
+                        </div>
+                        <div class="distribution-item">
+                            <div class="distribution-bar">
+                                <div class="distribution-fill" style="width: 1%"></div>
+                            </div>
+                            <div class="distribution-info">
+                                <span class="distribution-label">Otros</span>
+                                <span class="distribution-value">1% - $1,024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="log" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Log de Accesos</h2>
+                    <p class="section-subtitle">Registro de actividades del sistema</p>
+                </div>
+
+
+                <div class="log-filters">
+                    <input type="text" class="log-search-input" placeholder="Buscar en el log..." id="searchLog">
+                    <select class="log-filter-select">
+                        <option>Todos los tipos</option>
+                        <option>Inicio de sesión</option>
+                        <option>Modificación</option>
+                        <option>Eliminación</option>
+                        <option>Creación</option>
+                    </select>
+                    <select class="log-filter-select">
+                        <option>Últimas 24 horas</option>
+                        <option>Últimos 7 días</option>
+                        <option>Últimos 30 días</option>
+                        <option>Todo</option>
+                    </select>
+                </div>
+
+
+                <div class="log-table-container">
+                    <table class="log-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha y Hora</th>
+                                <th>Usuario</th>
+                                <th>Acción</th>
+                                <th>Descripción</th>
+                                <th>IP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="log-date">2024-10-16 14:32:15</td>
+                                <td class="log-user">Admin user</td>
+                                <td><span class="log-action-badge create">Creación</span></td>
+                                <td>Nueva película "Demon Slayer" agregada</td>
+                                <td class="log-ip">192.168.1.100</td>
+                            </tr>
+                            <tr>
+                                <td class="log-date">2024-10-16 13:45:22</td>
+                                <td class="log-user">María García</td>
+                                <td><span class="log-action-badge modify">Modificación</span></td>
+                                <td>Cliente promocionado a VIP</td>
+                                <td class="log-ip">192.168.1.105</td>
+                            </tr>
+                            <tr>
+                                <td class="log-date">2024-10-16 12:18:40</td>
+                                <td class="log-user">Admin user</td>
+                                <td><span class="log-action-badge create">Creación</span></td>
+                                <td>Nuevo cajero Juan Pérez agregado</td>
+                                <td class="log-ip">192.168.1.100</td>
+                            </tr>
+                            <tr>
+                                <td class="log-date">2024-10-16 11:05:33</td>
+                                <td class="log-user">Carlos López</td>
+                                <td><span class="log-action-badge login">Inicio sesión</span></td>
+                                <td>Inicio de sesión exitoso</td>
+                                <td class="log-ip">192.168.1.110</td>
+                            </tr>
+                            <tr>
+                                <td class="log-date">2024-10-16 10:22:18</td>
+                                <td class="log-user">Admin user</td>
+                                <td><span class="log-action-badge delete">Eliminación</span></td>
+                                <td>Producto "Hot Dog" eliminado</td>
+                                <td class="log-ip">192.168.1.100</td>
+                            </tr>
+                            <tr>
+                                <td class="log-date">2024-10-16 09:15:45</td>
+                                <td class="log-user">Admin user</td>
+                                <td><span class="log-action-badge modify">Modificación</span></td>
+                                <td>Precio de "Palomitas medianas" actualizado</td>
+                                <td class="log-ip">192.168.1.100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <section id="configuracion" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Configuración del Sistema</h2>
+                    <p class="section-subtitle">Administre las configuraciones generales de CineMax</p>
+                </div>
+
+
+                <div class="config-grid">
+
+                    <div class="config-card">
+                        <div class="config-card-header">
+                            <div class="config-icon cinema">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2" />
+                                    <polyline points="17 2 12 7 7 2" />
+                                </svg>
+                            </div>
+                            <h3 class="config-title">Información del Cine</h3>
+                        </div>
+                        <div class="config-content">
+                            <div class="config-field">
+                                <label>Nombre del Cine</label>
+                                <input type="text" value="CineMax" class="config-input">
+                            </div>
+                            <div class="config-field">
+                                <label>Dirección</label>
+                                <input type="text" value="Calle 123 #45-67, Bogotá" class="config-input">
+                            </div>
+                            <div class="config-field">
+                                <label>Teléfono</label>
+                                <input type="text" value="+57 310 555 0100" class="config-input">
+                            </div>
+                            <div class="config-field">
+                                <label>Email</label>
+                                <input type="email" value="contacto@cinemax.com" class="config-input">
+                            </div>
+                            <button class="btn-save-config">Guardar Cambios</button>
+                        </div>
+                    </div>
+
+                    <div class="config-card">
+                        <div class="config-card-header">
+                            <div class="config-icon hours">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <h3 class="config-title">Horarios de Atención</h3>
+                        </div>
+                        <div class="config-content">
+                            <div class="config-field">
+                                <label>Lunes a Jueves</label>
+                                <div class="time-inputs">
+                                    <input type="time" value="10:00" class="config-input-small">
+                                    <span>-</span>
+                                    <input type="time" value="22:00" class="config-input-small">
+                                </div>
+                            </div>
+                            <div class="config-field">
+                                <label>Viernes a Domingo</label>
+                                <div class="time-inputs">
+                                    <input type="time" value="10:00" class="config-input-small">
+                                    <span>-</span>
+                                    <input type="time" value="00:00" class="config-input-small">
+                                </div>
+                            </div>
+                            <button class="btn-save-config">Guardar Cambios</button>
+                        </div>
+                    </div>
+                    <div class="config-card">
+                        <div class="config-card-header">
+                            <div class="config-icon pricing">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23" />
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                </svg>
+                            </div>
+                            <h3 class="config-title">Configuración de Precios</h3>
+                        </div>
+                        <div class="config-content">
+                            <div class="config-field">
+                                <label>Precio Base Entrada</label>
+                                <input type="number" value="18000" class="config-input">
+                            </div>
+                            <div class="config-field">
+                                <label>Descuento VIP (%)</label>
+                                <input type="number" value="20" class="config-input">
+                            </div>
+                            <div class="config-field">
+                                <label>IVA (%)</label>
+                                <input type="number" value="19" class="config-input">
+                            </div>
+                            <button class="btn-save-config">Guardar Cambios</button>
+                        </div>
+                    </div>
+                    <div class="config-card">
+                        <div class="config-card-header">
+                            <div class="config-icon notifications">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                                </svg>
+                            </div>
+                            <h3 class="config-title">Notificaciones</h3>
+                        </div>
+                        <div class="config-content">
+                            <div class="config-toggle">
+                                <label>Notificaciones por Email</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-toggle">
+                                <label>Alertas de Sistema</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-toggle">
+                                <label>Reportes Automáticos</label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="config-card">
+                        <div class="config-card-header">
+                            <div class="config-icon security">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </div>
+                            <h3 class="config-title">Seguridad</h3>
+                        </div>
+                        <div class="config-content">
+                            <div class="config-toggle">
+                                <label>Autenticación de Dos Factores</label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-toggle">
+                                <label>Cerrar Sesión Automática</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-field">
+                                <label>Tiempo de Inactividad (minutos)</label>
+                                <input type="number" value="30" class="config-input">
+                            </div>
+                            <button class="btn-save-config">Guardar Cambios</button>
+                        </div>
+                    </div>
+                    <div class="config-card">
+                        <div class="config-card-header">
+                            <div class="config-icon backup">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="17 8 12 3 7 8" />
+                                    <line x1="12" y1="3" x2="12" y2="15" />
+                                </svg>
+                            </div>
+                            <h3 class="config-title">Respaldo y Restauración</h3>
+                        </div>
+                        <div class="config-content">
+                            <div class="config-toggle">
+                                <label>Respaldo Automático</label>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-field">
+                                <label>Frecuencia de Respaldo</label>
+                                <select class="config-input">
+                                    <option>Diario</option>
+                                    <option>Semanal</option>
+                                    <option>Mensual</option>
+                                </select>
+                            </div>
+                            <div class="config-actions">
+                                <button class="btn-backup">Crear Respaldo Ahora</button>
+                                <button class="btn-restore">Restaurar desde Respaldo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
