@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineMax Cajero</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../usuarios/usuarios.css" />
+    <!-- Íconos de Phosphor (para los sillones y otros) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ======================================================
+         🔴 SIDEBAR
+    ====================================================== -->
+        <aside class="sidebar">
+            <h2 class="logo">CineMax Cajero</h2>
+            <nav class="menu">
+                <button class="menu-btn active" id="btnCartelera"><i class="ph ph-film-reel"></i> Ver Cartelera</button>
+                <button class="menu-btn" onclick="window.location.href='cajeros-reservas.html'">
+                    <i class="fa-solid fa-ticket"></i> Reservas
+                </button>
+                <button class="menu-btn"><i class="ph ph-receipt"></i> Boletas</button>
+            </nav>
+        </aside>
+
+        <!-- ======================================================
+         🟢 CONTENEDOR PRINCIPAL
+    ====================================================== -->
+        <main class="main-content">
+
+            <!-- ======================================
+           🔹 HEADER FIJO
+      ====================================== -->
+            <header class="header">
+                <span>Bienvenido, Cajero user</span>
+                <button class="logout-btn">
+                    <i class="ph ph-sign-out"></i> Cerrar sesión
+                </button>
+            </header>
+
+            <!-- ======================================
+           🎬 CARTELERA
+      ====================================== -->
+            <section class="cartelera" id="seccionCartelera">
+                <h2>Cartelera</h2>
+                <div class="peliculas">
+                    <div class="pelicula" data-pelicula="demon">
+                        <img src="/src/assets/img/poster1.jpg" alt="Demon Slayer" />
+                        <h3>DEMON SLAYER: KIMETSU NO YAIBA</h3>
+                        <p class="genero">Acción</p>
+                        <p class="duracion">2h 15min</p>
+                        <div class="horarios">
+                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
+                        </div>
+                        <button class="btn-vender">Vender Boletos</button>
+                    </div>
+
+                    <div class="pelicula" data-pelicula="dracula">
+                        <img src="/src/assets/img/poster10.jpg" alt="Dracula" />
+                        <h3>Dracula: A Love Tale</h3>
+                        <p class="genero">Acción</p>
+                        <p class="duracion">2h 15min</p>
+                        <div class="horarios">
+                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
+                        </div>
+                        <button class="btn-vender">Vender Boletos</button>
+                    </div>
+
+                    <div class="pelicula" data-pelicula="terror">
+                        <img src="/src/assets/img/poster4.jpg" alt="Noche de Terror" />
+                        <h3>Noche de Terror</h3>
+                        <p class="genero">Acción</p>
+                        <p class="duracion">2h 15min</p>
+                        <div class="horarios">
+                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
+                        </div>
+                        <button class="btn-vender">Vender Boletos</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================
+           🎟️ VENDER BOLETOS
+      ====================================== -->
+            <section class="vender oculto" id="seccionVender">
+                <div class="detalle">
+                    <div class="tarjeta-pelicula">
+                        <img id="imgPelicula" src="" alt="Poster" />
+                        <div class="info-pelicula">
+                            <h3 id="tituloPelicula"></h3>
+                            <div class="subinfo">
+                                <p class="genero">Acción</p>
+                                <p class="duracion">2h 15min</p>
+                                <span class="estrella">⭐ 4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opciones">
+                    <!-- Bloque FECHA -->
+                    <div class="bloque">
+                        <div class="bloque-titulo">
+                            <i class="ph ph-calendar"></i>
+                            <h4>Seleccionar Fecha</h4>
+                        </div>
+                        <div class="grupo-fechas">
+                            <button class="fecha">Jue<br><span>Hoy</span></button>
+                            <button class="fecha activa">Vie<br><span>Mañana</span></button>
+                            <button class="fecha">Sáb<br><span>24 Ago</span></button>
+                            <button class="fecha">Dom<br><span>25 Ago</span></button>
+                            <button class="fecha">Lun<br><span>26 Ago</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Bloque FORMATO Y HORARIO -->
+                    <div class="bloque">
+                        <div class="bloque-titulo">
+                            <i class="ph ph-clock"></i>
+                            <h4>Seleccionar Formato y horario</h4>
+                        </div>
+                        <div class="barra-formato">
+                            <button class="formato activo">2D</button>
+                            <button class="formato">3D</button>
+                            <button class="formato">IMAX</button>
+                        </div>
+
+                        <p class="subtitulo">2D - Función Regular</p>
+
+                        <div class="grupo-horas">
+                            <button class="hora">14:00</button>
+                            <button class="hora activa">16:30</button>
+                            <button class="hora">19:00</button>
+                            <button class="hora">21:30</button>
+                        </div>
+                    </div>
+
+                    <!-- Botones finales -->
+                    <div class="acciones">
+                        <button id="btnVolver" class="volver"><i class="ph ph-arrow-left"></i> Volver</button>
+                        <button class="continuar">Seleccionar Asientos</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================
+           🪑 SELECCIONAR ASIENTOS
+      ====================================== -->
+            <section class="asientos oculto" id="seccionAsientos">
+                <div class="encabezado-asientos">
+                    <button id="btnVolverAsientos" class="volver">
+                        <i class="ph ph-arrow-left"></i>
+                    </button>
+                    <h3 id="tituloAsientos">DEMON SLAYER: KIMETSU NO YAIBA</h3>
+                </div>
+
+                <div class="contenido-asientos">
+                    <!-- 🪑 MAPA DE ASIENTOS -->
+                    <div class="mapa-asientos">
+                        <div class="leyenda">
+                            <span><i class="ph ph-armchair disponible"></i> Disponible</span>
+                            <span><i class="ph ph-armchair seleccionado"></i> Seleccionado</span>
+                            <span><i class="ph ph-armchair ocupado"></i> Ocupado</span>
+                            <span><i class="ph ph-armchair vip"></i> VIP ($25)</span>
+                            <span><i class="ph ph-armchair premium"></i> Premium ($18)</span>
+                        </div>
+
+                        <div class="pantalla"></div>
+                        <p class="etiqueta-pantalla">PANTALLA</p>
+
+                        <div class="grid-asientos" id="gridAsientos"></div>
+                    </div>
+
+                    <!-- 📋 PANEL DE RESUMEN -->
+                    <div class="resumen">
+                        <h4>Resumen</h4>
+                        <p><strong>Película:</strong><br><span id="resumenPelicula">-</span></p>
+                        <p><strong>Función:</strong><br><span id="resumenFuncion">Mañana · 16:30 - 2D</span></p>
+                        <p><strong>Ubicación:</strong><br><span id="resumenUbicacion">CineMax Plaza Norte</span></p>
+                        <p><strong>Asientos:</strong><br><span id="resumenAsientos">Ninguno</span></p>
+                        <hr>
+                        <p><strong>Total $</strong><span id="resumenTotal">0</span></p>
+                        <div class="acciones-finales">
+                            <button class="continuar" id="btnConfirmarVenta">Vender</button>
+                            <button class="volver" id="btnReservar">Reservar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/src/shared/animaciones.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+
+</html>

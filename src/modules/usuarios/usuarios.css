@@ -1,0 +1,560 @@
+/* =====================================================
+   🎨 RESETEO BÁSICO Y CONFIGURACIÓN GENERAL
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* =====================================================
+   🧱 ESTRUCTURA PRINCIPAL
+===================================================== */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 240px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  color: #c70000;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+  width: 100%;
+}
+
+.menu-btn i {
+  font-size: 18px;
+  color: #888;
+}
+
+.menu-btn:hover,
+.menu-btn.active {
+  background-color: #c70000;
+  color: white;
+}
+
+.menu-btn:hover i,
+.menu-btn.active i {
+  color: white;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =====================================================
+   🎬 CARTELERA
+===================================================== */
+.cartelera {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  background-color: #fff;
+}
+
+.cartelera h2 {
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.peliculas {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.pelicula {
+  width: 260px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.pelicula img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.pelicula h3 {
+  font-size: 15px;
+  margin: 8px 0 3px 0;
+}
+
+.genero,
+.duracion {
+  font-size: 13px;
+  color: #666;
+}
+
+.horarios {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.horarios span {
+  background: #f2f2f2;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.btn-vender {
+  background: #c70000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn-vender:hover {
+  background: #a50000;
+}
+
+/* =====================================================
+   🎟️ SECCIÓN VENDER BOLETOS
+===================================================== */
+.vender {
+  display: flex;
+  gap: 40px;
+  padding: 40px 60px;
+  background: #fff;
+  flex-wrap: wrap;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.detalle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* === TARJETA DE PELÍCULA === */
+.tarjeta-pelicula {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarjeta-pelicula img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  border-radius: 20px 20px 0 0;
+}
+
+.info-pelicula {
+  width: 100%;
+  padding: 10px 12px 15px 12px;
+}
+
+.info-pelicula h3 {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.subinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.estrella {
+  color: #ffbb00;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* === BLOQUES DE OPCIONES === */
+.opciones {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.bloque {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  padding: 20px 25px;
+}
+
+.bloque-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.grupo-fechas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fecha {
+  border: 1.5px solid #ddd;
+  background: #fff;
+  border-radius: 12px;
+  width: 80px;
+  height: 65px;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.fecha span {
+  font-size: 12px;
+  color: #666;
+}
+
+.fecha.activa {
+  border: 1.8px solid #e32b2b;
+  background: #ffeaea;
+  color: #c70000;
+}
+
+/* === FORMATO Y HORARIO === */
+.barra-formato {
+  display: flex;
+  background: #f3f3f3;
+  border-radius: 40px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.formato {
+  flex: 1;
+  border: none;
+  padding: 10px 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  color: #555;
+}
+
+.formato.activo {
+  background: #fff;
+  border-radius: 40px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  color: #c70000;
+  font-weight: 600;
+}
+
+.subtitulo {
+  font-size: 13px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.grupo-horas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hora {
+  background: #fff;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hora.activa {
+  border: 1.8px solid #e32b2b;
+  background: #ffeaea;
+  color: #c70000;
+}
+
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.volver,
+.continuar {
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.volver {
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  color: #444;
+}
+
+.continuar {
+  background: #c70000;
+  color: #fff;
+  border: none;
+}
+
+.continuar:hover {
+  background: #a50000;
+}
+
+/* =====================================================
+   🪑 SELECCIÓN DE ASIENTOS
+===================================================== */
+.asientos {
+  padding: 30px 50px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.encabezado-asientos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contenido-asientos {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* === MAPA DE ASIENTOS === */
+.mapa-asientos {
+  flex: 2;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+/* =====================================================
+   🎨 COLORES DE LEYENDA (corrige la visualización)
+===================================================== */
+.leyenda {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 15px;
+  gap: 8px;
+}
+
+.leyenda span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* === Colores coherentes con los sillones del mapa === */
+.leyenda .disponible {
+  color: #cfcfcf; /* gris claro */
+}
+
+.leyenda .seleccionado {
+  color: #ff6b6b; /* rojo suave */
+}
+
+.leyenda .ocupado {
+  color: #4d4d4d; /* gris oscuro */
+}
+
+.leyenda .vip {
+  color: #d4b106; /* dorado */
+}
+
+.leyenda .premium {
+  color: #e52b2b; /* rojo intenso */
+}
+
+.pantalla {
+  width: 100%;
+  height: 6px;
+  background: #ff5959;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.etiqueta-pantalla {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.grid-asientos {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+/* === SILLONES (Phosphor Icons) === */
+.asiento {
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.asiento.disponible { color: #cfcfcf; }
+.asiento.vip { color: #d4b106; }
+.asiento.premium { color: #e52b2b; }
+.asiento.ocupado { color: #4d4d4d; cursor: not-allowed; }
+.asiento.seleccionado { color: #ff6b6b; transform: scale(1.3); }
+
+/* === PANEL DE RESUMEN === */
+.resumen {
+  flex: 1;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.resumen h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.resumen p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.resumen hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.acciones-finales {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#btnConfirmarVenta,
+#btnReservar {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btnConfirmarVenta {
+  background: #c70000;
+  color: #fff;
+  border: none;
+}
+
+#btnReservar {
+  background: #f2f2f2;
+  border: 1px solid #ccc;
+  color: #444;
+}
+
+#btnConfirmarVenta:hover { background: #a00000; }
