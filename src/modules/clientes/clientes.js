@@ -16,12 +16,75 @@ tabButtons.forEach(button => {
   });
 });
 
-// Back Button
-const btnBack = document.getElementById('btnBack');
-btnBack.addEventListener('click', () => {
-  // Usuario manejará la redirección
-  console.log('[v0] Botón volver clickeado - Usuario manejará la redirección');
-  // window.history.back(); // Ejemplo de implementación
+document.addEventListener("DOMContentLoaded", () => {
+  const btnBack = document.getElementById("btnBack");
+  if (!btnBack) return;
+
+  const fileTarget = "file:///C:/Users/jenif/Downloads/CineMax/src/modules/cartelera/cartelera.html";
+  const httpCandidates = [
+    "/src/modules/cartelera/cartelera.html",
+    "/modules/cartelera/cartelera.html",
+    "/src/cartelera/cartelera.html",
+    "/cartelera/cartelera.html",
+    "cartelera.html",
+    "../cartelera/cartelera.html",
+    "../../modules/cartelera/cartelera.html",
+    "src/modules/cartelera/cartelera.html"
+  ];
+
+  async function exists(url) {
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      return res && (res.ok || res.status === 200);
+    } catch {
+      return false;
+    }
+  }
+
+  async function navigateToCartelera() {
+    // si estamos en http(s) intentar candidatos HTTP
+    if (location.protocol.startsWith("http")) {
+      for (const c of httpCandidates) {
+        // probar con origin + c y con c directo
+        const withOrigin = (location.origin || "") + c;
+        if (await exists(withOrigin)) { window.location.href = withOrigin; return; }
+        if (await exists(c)) { window.location.href = c; return; }
+      }
+      // fallback relativo
+      window.location.href = "../cartelera/cartelera.html";
+      return;
+    }
+
+    // si estamos con file:// navegar a la ruta absoluta indicada
+    if (location.protocol === "file:") {
+      window.location.href = fileTarget;
+      return;
+    }
+
+    // fallback general
+    window.location.href = "../cartelera/cartelera.html";
+  }
+
+  btnBack.addEventListener("click", (e) => {
+    e.preventDefault();
+    navigateToCartelera();
+  });
+
+  // Manejar botón de cerrar sesión -> intentar ruta relativa (funciona con Live Server)
+  const btnLogout = document.getElementById("btn-logout") || document.querySelector(".btn-logout, .logout-btn");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // 1) Ruta relativa desde src/modules/clientes/ -> ../index.html (recomendado)
+      window.location.href = "../index.html";
+
+      // Nota: si la página fue abierta con file:// (doble clic) el navegador sí permite file://,
+      // pero desde HTTP no se puede redirigir a file:// por motivos de seguridad.
+      // Si necesitas forzar file:// al abrir localmente, descomenta la siguiente línea:
+      // if (location.protocol === "file:") window.location.href = "file:///C:/Users/jenif/Downloads/CineMax/src/modules/index.html";
+    });
+  }
 });
 
 // Edit Profile Info

@@ -97,5 +97,63 @@
     </div>
   </footer>
   <script src="./cartelera.js"></script>
+
+  <!-- Navegación al hacer click en "user-icon" hacia clientes.html -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const userIcon = document.querySelector('.user-icon');
+      if (!userIcon) return;
+      userIcon.style.cursor = 'pointer';
+
+      // Ruta absoluta por file:// que pediste
+      const fileTarget = "file:///C:/Users/jenif/Downloads/CineMax/src/modules/clientes/clientes.html";
+
+      // Candidatos HTTP/relativos (se probarán en ese orden si la página se sirve por HTTP)
+      const httpCandidates = [
+        (location.origin || '') + '/src/modules/clientes/clientes.html',
+        (location.origin || '') + '/modules/clientes/clientes.html',
+        '/src/modules/clientes/clientes.html',
+        '/modules/clientes/clientes.html',
+        '/src/clientes/clientes.html',
+        '/clientes/clientes.html',
+        'src/modules/clientes/clientes.html',
+        'modules/clientes/clientes.html',
+        '../clientes/clientes.html',
+        '../../modules/clientes/clientes.html'
+      ];
+
+      async function tryHttpNavigate() {
+        for (const c of httpCandidates) {
+          try {
+            // probar HEAD para verificar existencia (algunos servidores aceptan)
+            const res = await fetch(c, { method: 'HEAD' });
+            if (res && (res.ok || res.status === 200)) {
+              window.location.href = c;
+              return true;
+            }
+          } catch (err) {
+            // ignorar y probar siguiente candidato
+          }
+        }
+        return false;
+      }
+
+      userIcon.addEventListener('click', async (e) => {
+        e.preventDefault();
+        // Si la página fue abierta con file:// podemos navegar directamente al fileTarget
+        if (location.protocol === 'file:') {
+          window.location.href = fileTarget;
+          return;
+        }
+
+        // Si estamos en HTTP, intentar encontrar la ruta correcta en el servidor
+        const ok = await tryHttpNavigate();
+        if (ok) return;
+
+        // Fallback relativo (desde /src/modules/cartelera/)
+        window.location.href = '../clientes/clientes.html';
+      });
+    });
+  </script>
 </body>
 </html>
