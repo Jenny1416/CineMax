@@ -40,6 +40,17 @@ body.user-body {
   height: auto;
 }
 
+/* Nuevo: texto en lugar de logo */
+.brand-text {
+  color: var(--rojo);
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .main-nav {
   display: flex;
   gap: 36px;
