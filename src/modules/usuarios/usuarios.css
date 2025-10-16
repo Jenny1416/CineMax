@@ -558,3 +558,91 @@ body {
 }
 
 #btnConfirmarVenta:hover { background: #a00000; }
+
+/* =====================================================
+   💬 MODAL DE CLIENTE Y PAGO
+===================================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.modal.oculto {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  width: 400px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: #c70000;
+  text-align: center;
+}
+
+.modal-content label {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#bloquePago {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.acciones-modal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.acciones-modal button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btnCancelarModal {
+  background: #eee;
+}
+
+#btnConfirmarModal {
+  background: #c70000;
+  color: white;
+}
+
+#btnConfirmarModal:hover {
+  background: #a00000;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consolidado de Ventas - CineMax</title>
+
+  <link rel="stylesheet" href="../usuarios/usuarios.css" />
+  <link rel="stylesheet" href="../usuarios/consolidado.css" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- 🔴 SIDEBAR -->
+        <aside class="sidebar">
+            <h2 class="logo">CineMax Cajero</h2>
+            <nav class="menu">
+                <button class="menu-btn" onclick="window.location.href='cajeros.html'">
+                    <i class="ph ph-film-reel"></i> Ver Cartelera
+                </button>
+
+                <button class="menu-btn" onclick="window.location.href='cajeros-reservas.html'">
+                    <i class="ph ph-ticket"></i> Reservas
+                </button>
+
+                <button class="menu-btn active" onclick="window.location.href='consolidado.html'">
+                    <i class="ph ph-chart-bar"></i> Consolidado
+                </button>
+            </nav>
+        </aside>
+
+    <!-- 🟢 CONTENEDOR PRINCIPAL -->
+    <main class="main-content">
+      <header class="header">
+        <span>Bienvenido, Cajero user</span>
+        <button class="logout-btn"><i class="ph ph-sign-out"></i> Cerrar sesión</button>
+      </header>
+
+      <!-- 📊 SECCIÓN CONSOLIDADO -->
+      <section class="consolidado">
+        <h2>Consolidado de Ventas</h2>
+
+        <!-- FILTROS -->
+        <div class="filtros">
+          <label>📅 Fecha de corte:</label>
+          <select id="filtroTipo">
+            <option value="hoy">Hoy</option>
+            <option value="semana">Esta semana</option>
+            <option value="rango">Rango personalizado</option>
+          </select>
+
+          <div id="rangoFechas" class="oculto">
+            <input type="date" id="fechaInicio">
+            <input type="date" id="fechaFin">
+          </div>
+
+          <button id="btnFiltrar">Filtrar</button>
+        </div>
+
+        <!-- MÉTRICAS -->
+        <div class="metricas">
+          <div class="card">
+            <h3>Total boletas vendidas</h3>
+            <p id="totalBoletas">0</p>
+          </div>
+          <div class="card">
+            <h3>Total recaudado</h3>
+            <p id="totalRecaudado">$0</p>
+          </div>
+        </div>
+
+        <!-- TABLAS -->
+        <div class="tablas">
+          <div class="tabla-container">
+            <h4>Ventas por película</h4>
+            <table id="tablaPeliculas">
+              <thead><tr><th>Película</th><th>Boletas</th><th>Total</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="tabla-container">
+            <h4>Ventas por horario</h4>
+            <table id="tablaHorarios">
+              <thead><tr><th>Horario</th><th>Boletas</th><th>Total</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="tabla-container">
+            <h4>Ventas por cajero</h4>
+            <table id="tablaCajeros">
+              <thead><tr><th>Cajero</th><th>Boletas</th><th>Total</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../usuarios/consolidado.js"></script>
+</body>
+</html>
