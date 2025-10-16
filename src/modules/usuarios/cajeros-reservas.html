@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineMax Cajero - Reservas</title>
+
+  <link rel="stylesheet" href="../usuarios/usuarios.css">
+  <link rel="stylesheet" href="../usuarios/cajeros-reservas.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 🔴 SIDEBAR -->
+    <aside class="sidebar">
+      <h2 class="logo">CineMax Cajero</h2>
+      <nav class="menu">
+        <button class="menu-btn" onclick="window.location.href='cajeros.html'">
+          <i class="ph ph-film-reel"></i> Ver Cartelera
+        </button>
+        <button class="menu-btn active">
+          <i class="ph ph-ticket"></i> Reservas
+        </button>
+        <button class="menu-btn"><i class="ph ph-receipt"></i> Boletas</button>
+      </nav>
+    </aside>
+
+    <!-- 🟢 CONTENEDOR PRINCIPAL -->
+    <main class="main-content">
+      <header class="header">
+        <span>Bienvenido, Cajero user</span>
+        <button class="logout-btn">
+          <i class="ph ph-sign-out"></i> Cerrar sesión
+        </button>
+      </header>
+
+      <!-- 🎟️ GESTIÓN DE RESERVAS -->
+      <section class="reservas">
+        <h2>Gestión de Reservas</h2>
+        <p>Confirme o cancele reservas de boletas</p>
+
+        <div class="busqueda">
+          <input type="text" id="buscarReserva" placeholder="Buscar Película o ID...">
+          <span id="contadorReservas">0 reserva(s)</span>
+        </div>
+
+        <!-- 🔴 Reservas Pendientes -->
+        <div class="bloque-reservas pendiente">
+          <div class="titulo-bloque">
+            <i class="ph ph-clock"></i>
+            <h3>Reservas Pendientes</h3>
+          </div>
+          <small>Estas reservas requieren confirmación o cancelación</small>
+          <div id="reservasPendientes" class="lista-reservas"></div>
+        </div>
+
+        <!-- 🟢 Reservas Confirmadas -->
+        <div class="bloque-reservas confirmada">
+          <div class="titulo-bloque">
+            <i class="ph ph-check-circle"></i>
+            <h3>Reservas Confirmadas</h3>
+          </div>
+          <small>Estas reservas ya fueron confirmadas y no requieren acción</small>
+          <div id="reservasConfirmadas" class="lista-reservas"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../usuarios/cajeros-reservas.js"></script>
+</body>
+</html>
