@@ -1,5 +1,5 @@
 /* ===========================================================
-   CARTELERA 
+   CARTELERA (mantiene diseño original)
    =========================================================== */
 
 :root {
@@ -285,18 +285,35 @@ body.user-body {
   font-size: 14px;
 }
 
-/* ================= RECOMENDADO ================= */
+/* ================= RECOMENDADO (ajustado a todo el ancho y altura correcta) ================= */
 .recomendado-section {
-  background: linear-gradient(180deg, var(--rojo-oscuro), var(--rojo));
-  color: #fff;
-  padding: 50px 20px;
+  position: relative;
+  padding: 60px 0 90px;
   text-align: center;
+  background: linear-gradient(180deg, #d40000 0%, #7a0000 70%, #000000 100%);
+  color: #fff;
+  width: 100%;
+  margin: 0;
+}
+
+.recomendado-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* ocupa toda la altura visible */
+  background: linear-gradient(180deg, #d40000 0%, #7a0000 70%, #000000 100%);
+  z-index: 0;
 }
 
 .recomendado-title {
   font-size: 24px;
   margin-bottom: 30px;
   font-weight: 600;
+  color: #fff;
+  position: relative;
+  z-index: 2;
 }
 
 .recomendado-grid {
@@ -304,6 +321,8 @@ body.user-body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 22px;
+  position: relative;
+  z-index: 2;
 }
 
 .reco-card {
@@ -311,9 +330,11 @@ body.user-body {
   color: var(--texto);
   border-radius: 14px;
   overflow: hidden;
-  width: 200px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  width: 220px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 3;
 }
 
 .reco-card:hover {
@@ -329,6 +350,7 @@ body.user-body {
 .reco-body {
   padding: 10px;
   text-align: left;
+  color: #333;
 }
 
 .reco-title {
@@ -339,6 +361,12 @@ body.user-body {
 .reco-meta {
   font-size: 13px;
   color: #666;
+}
+
+@media (max-width: 700px) {
+  .reco-card {
+    width: 180px;
+  }
 }
 
 /* ================= FOOTER ================= */
@@ -400,4 +428,615 @@ body.user-body {
 
 .socials span {
   font-weight: 500;
+}
+/* ================= MODAL DETALLE PELÍCULA ================= */
+.movie-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.movie-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.movie-modal-content {
+  background: #fff;
+  color: #222;
+  border-radius: 14px;
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #900;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #c00;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal-left {
+  flex: 1 1 40%;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.modal-subposter {
+  position: relative;
+  margin-top: 10px;
+}
+
+.modal-subposter img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.modal-right {
+  flex: 1 1 60%;
+  padding: 30px;
+}
+
+.modal-title {
+  font-size: 22px;
+  color: var(--rojo);
+  font-weight: 700;
+}
+
+.modal-subtitle {
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.modal-meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.modal-badge {
+  display: inline-block;
+  background: #900;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.modal-info p {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.modal-schedule {
+  margin-top: 25px;
+}
+
+.modal-schedule h4 {
+  color: var(--rojo);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.date-grid {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.date {
+  background: #eee;
+  color: #222;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.date.active,
+.date:hover {
+  background: var(--rojo);
+  color: #fff;
+}
+
+.cinema-card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.cinema-card h5 {
+  font-size: 15px;
+  color: var(--rojo);
+  margin-bottom: 4px;
+}
+/* ================= MODAL DETALLE PELÍCULA ================= */
+.movie-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.movie-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.movie-modal-content {
+  background: #fff;
+  color: #222;
+  border-radius: 14px;
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #900;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #c00;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modal-left {
+  flex: 1 1 40%;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-poster {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.modal-subposter {
+  position: relative;
+  margin-top: 10px;
+}
+
+.modal-subposter img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.modal-right {
+  flex: 1 1 60%;
+  padding: 30px;
+}
+
+.modal-title {
+  font-size: 22px;
+  color: var(--rojo);
+  font-weight: 700;
+}
+
+.modal-subtitle {
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.modal-meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.modal-badge {
+  display: inline-block;
+  background: #900;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.modal-info p {
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.modal-schedule {
+  margin-top: 25px;
+}
+
+.modal-schedule h4 {
+  color: var(--rojo);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.date-grid {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.date {
+  background: #eee;
+  color: #222;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.date.active,
+.date:hover {
+  background: var(--rojo);
+  color: #fff;
+}
+
+.cinema-card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.cinema-card h5 {
+  font-size: 15px;
+  color: var(--rojo);
+  margin-bottom: 4px;
+}
+/* ==================== MODAL NUEVA VENTANA ==================== */
+.new-movie-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-movie-modal.active {
+  display: flex;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+.new-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.new-modal-content {
+  position: relative;
+  background: #fff;
+  color: #222;
+  border-radius: 16px;
+  max-width: 1100px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  z-index: 3001;
+}
+
+.new-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  color: #d40000;
+  cursor: pointer;
+  z-index: 3002;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.new-close-modal:hover {
+  background: #fff;
+  transform: rotate(90deg);
+}
+
+/* Header con Banner */
+.new-modal-header {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+.new-modal-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.new-header-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  padding: 30px;
+}
+
+.new-modal-title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Cuerpo del Modal */
+.new-modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px;
+}
+
+/* Columna Izquierda - Poster */
+.new-modal-left {
+  flex: 0 0 280px;
+}
+
+.new-modal-poster {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Columna Derecha - Información */
+.new-modal-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.new-modal-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.new-modal-meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.new-modal-badge {
+  display: inline-block;
+  background: #d40000;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.new-modal-description {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Información de la Película */
+.new-modal-info {
+  margin-bottom: 25px;
+}
+
+.new-modal-info p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.new-modal-info strong {
+  color: #d40000;
+}
+
+/* Horarios */
+.new-modal-schedule h4 {
+  color: #d40000;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.new-date-grid {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.new-date {
+  background: #f3f3f3;
+  color: #333;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.new-date.active,
+.new-date:hover {
+  background: #d40000;
+  color: #fff;
+  border-color: #a00000;
+}
+
+/* Tarjetas de Cines */
+.new-cinema-card {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.new-cinema-card:hover {
+  border-color: #d40000;
+  box-shadow: 0 4px 12px rgba(212,0,0,0.1);
+}
+
+.new-cinema-card h5 {
+  font-size: 16px;
+  color: #d40000;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.new-cinema-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .new-modal-body {
+    flex-direction: column;
+  }
+
+  .new-modal-left {
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .new-modal-title {
+    font-size: 24px;
+  }
+
+  .new-modal-header {
+    height: 200px;
+  }
 }

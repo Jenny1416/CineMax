@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax | Detalle Película</title>
+    <link rel="stylesheet" href="./detalle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="detalle-body">
+
+    <header class="detalle-header">
+        <a href="cartelera.html" class="back-btn">← Cartelera</a>
+        <h1 id="detalleTituloSuperior"></h1>
+    </header>
+
+    <main class="detalle-container">
+        <section class="detalle-left">
+            <img id="detallePoster" class="detalle-poster" alt="Poster de la película">
+            <div class="poster-caption">Comienza la mayor de las guerras</div>
+            <button class="btn-reservar" id="btnReservar">Reservar boletos</button>
+            <p id="detalleFrase" class="detalle-frase"></p>
+        </section>
+
+        <section class="detalle-right">
+            <div class="detalle-banner" id="detalleBanner">
+                <div class="detalle-overlay">
+                    <h2 id="detalleTitulo" class="detalle-titulo"></h2>
+                    <p id="detalleSubtitulo" class="detalle-subtitulo"></p>
+                    <p id="detalleMeta" class="detalle-meta"></p>
+                    <div class="detalle-badge" id="detalleClasificacion"></div>
+                </div>
+            </div>
+
+            <div class="detalle-info">
+                <p id="detalleDescripcion" class="detalle-descripcion"></p>
+                <div class="detalle-ficha">
+                    <p><strong>Título original:</strong> <span id="detalleTituloOriginal"></span></p>
+                    <p><strong>Director:</strong> <span id="detalleDirector"></span></p>
+                    <p><strong>Actores:</strong> <span id="detalleActores"></span></p>
+                    <p><strong>Duración:</strong> <span id="detalleDuracion"></span></p>
+                    <p><strong>Géneros:</strong> <span id="detalleGeneros"></span></p>
+                    <p><strong>Estreno:</strong> <span id="detalleFecha"></span></p>
+                </div>
+
+                <div class="detalle-horarios">
+                    <h3>Fechas y Horarios</h3>
+                    <div class="date-grid">
+                        <div class="date">11 SEP</div>
+                        <div class="date">12 SEP</div>
+                        <div class="date">13 SEP</div>
+                        <div class="date">14 SEP</div>
+                        <div class="date">15 SEP</div>
+                    </div>
+
+                    <div class="cinema-card">
+                        <h4>CineMax Plaza Norte</h4>
+                        <p>Av. Los Alisos 1234</p>
+                    </div>
+                    <div class="cinema-card">
+                        <h4>CineMax Plaza Sur</h4>
+                        <p>Av. El Sol 8765</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="detalle-footer">
+        <p>© 2025 CineMax - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="./detalle.js"></script>
+</body>
+
+</html>
