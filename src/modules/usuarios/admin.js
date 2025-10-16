@@ -30,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       if (confirm("¿Estás seguro de que deseas cerrar sesión?")) {
-        // Redirect to login or home page
-        window.location.href = "login.html"
+        window.location.href = "../../../index.html"
       }
     })
   }
