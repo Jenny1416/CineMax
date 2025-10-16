@@ -75,49 +75,24 @@ btnVolverAsientos.addEventListener("click", () => {
   window.location.href = "reserva.html";
 });
 
-// Confirmar venta → generar ticket PDF
+// Al confirmar en la pantalla de asientos guardamos la selección en localStorage
+// y luego navegamos a la página de detalle de compra.
 btnConfirmarVenta.addEventListener("click", () => {
+  // Asegurarse de que el resumen esté actualizado
+  actualizarResumen();
+
   if (asientosSeleccionados.length === 0) {
-    alert("❗Seleccione al menos un asiento para generar el ticket.");
+    alert("❗Seleccione al menos un asiento antes de continuar.");
     return;
   }
 
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+  const compra = {
+    asientos: asientosSeleccionados,
+    pelicula: tituloAsientos ? tituloAsientos.textContent : "Película",
+    subtotal: parseFloat(resumenTotal.textContent) || 0,
+    fechaCreacion: new Date().toISOString()
+  };
 
-  const titulo = tituloAsientos.textContent || "Película";
-  const fecha = new Date().toLocaleDateString();
-  const sala = Math.floor(Math.random() * 5) + 1;
-  const bloque = String.fromCharCode(65 + Math.floor(Math.random() * 6)); // A-F aleatorio
-
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text("🎟️ TICKET DE CINE", 20, 20);
-
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(12);
-  doc.text(`Película: ${titulo}`, 20, 35);
-  doc.text(`Fecha: ${fecha}`, 20, 45);
-  doc.text(`Sala: ${sala}`, 20, 55);
-  doc.text(`Bloque: ${bloque}`, 20, 65);
-  doc.text("-----------------------------------------------------", 20, 70);
-
-  let y = 80;
-  let total = 0;
-
-  asientosSeleccionados.forEach((a, i) => {
-    doc.text(
-      `Asiento ${i + 1}: F${a.fila}-C${a.columna} (${a.tipo.toUpperCase()})  $${a.precio}`,
-      20,
-      y
-    );
-    y += 10;
-    total += parseFloat(a.precio);
-  });
-
-  doc.text("-----------------------------------------------------", 20, y);
-  doc.text(`Total: $${total.toFixed(2)}`, 20, y + 10);
-
-  doc.save(`Ticket_${titulo.replace(/\s+/g, "_")}_${fecha}.pdf`);
-  alert("✅ Venta confirmada. Ticket generado y descargado.");
+  localStorage.setItem("compraCineMax", JSON.stringify(compra));
+  window.location.href = "../clientes/Detalle_compra.html";
 });
