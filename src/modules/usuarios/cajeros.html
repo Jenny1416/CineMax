@@ -20,11 +20,17 @@
         <aside class="sidebar">
             <h2 class="logo">CineMax Cajero</h2>
             <nav class="menu">
-                <button class="menu-btn active" id="btnCartelera"><i class="ph ph-film-reel"></i> Ver Cartelera</button>
-                <button class="menu-btn" onclick="window.location.href='cajeros-reservas.html'">
-                    <i class="fa-solid fa-ticket"></i> Reservas
+                <button class="menu-btn active" onclick="window.location.href='cajeros.html'">
+                    <i class="ph ph-film-reel"></i> Ver Cartelera
                 </button>
-                <button class="menu-btn"><i class="ph ph-receipt"></i> Boletas</button>
+
+                <button class="menu-btn" onclick="window.location.href='cajeros-reservas.html'">
+                    <i class="ph ph-ticket"></i> Reservas
+                </button>
+
+                <button class="menu-btn" onclick="window.location.href='consolidado.html'">
+                    <i class="ph ph-chart-bar"></i> Consolidado
+                </button>
             </nav>
         </aside>
 
@@ -57,7 +63,7 @@
                         <div class="horarios">
                             <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
                         </div>
-                        <button class="btn-vender">Vender Boletos</button>
+                        <button class="btn-vender" data-pelicula="demon">Vender Boletos</button>
                     </div>
 
                     <div class="pelicula" data-pelicula="dracula">
@@ -196,9 +202,44 @@
         </main>
     </div>
 
+    <!-- ======================================================
+     💬 MODAL DE DATOS DEL CLIENTE Y PAGO
+====================================================== -->
+    <div id="modalCliente" class="modal oculto">
+        <div class="modal-content">
+            <h3>Datos del Cliente</h3>
+            <form id="formCliente">
+                <label>👤 Nombre completo</label>
+                <input type="text" id="nombreCliente" required placeholder="Ej: Juan Pérez">
+
+                <label>🪪 Cédula</label>
+                <input type="text" id="cedulaCliente" required placeholder="Ej: 1234567890">
+
+                <label>📞 Teléfono</label>
+                <input type="text" id="telefonoCliente" required placeholder="Ej: 3001234567">
+
+                <div id="bloquePago">
+                    <label>💰 Total a pagar</label>
+                    <input type="number" id="totalPagar" readonly>
+
+                    <label>💵 Efectivo recibido</label>
+                    <input type="number" id="montoRecibido" placeholder="Monto entregado">
+
+                    <label>🔁 Cambio a entregar</label>
+                    <input type="text" id="cambioCliente" readonly value="$0">
+                </div>
+
+                <div class="acciones-modal">
+                    <button type="button" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" id="btnConfirmarModal">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="/src/shared/animaciones.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../../shared/animaciones.js"></script>
 </body>
 
 </html>
