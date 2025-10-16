@@ -1,0 +1,232 @@
+:root {
+  --rojo: #d40000;
+  --rojo-oscuro: #a00000;
+  --texto: #111;
+  --gris: #777;
+  --fondo: #fff;
+}
+
+body.detalle-body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #fff;
+  color: var(--texto);
+}
+
+.detalle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 2px solid #eee;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: var(--rojo);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.back-btn:hover {
+  color: var(--rojo-oscuro);
+}
+
+#detalleTituloSuperior {
+  font-size: 18px;
+  color: var(--texto);
+}
+
+.detalle-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 40px;
+  gap: 30px;
+}
+
+/* IZQUIERDA */
+.detalle-left {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detalle-poster {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.detalle-frase {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+}
+
+/* DERECHA */
+.detalle-right {
+  flex: 1;
+  background: #fafafa;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Banner con imagen */
+.detalle-banner {
+  position: relative;
+  height: 280px;
+  background: #000;
+}
+
+.detalle-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detalle-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.detalle-titulo {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.detalle-subtitulo {
+  font-size: 16px;
+  color: #ddd;
+  margin-bottom: 6px;
+}
+
+.detalle-meta {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.detalle-badge {
+  margin-top: 12px;
+  display: inline-block;
+  background: var(--rojo);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Info */
+.detalle-info {
+  padding: 30px 40px;
+}
+
+.detalle-descripcion {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.detalle-ficha p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.detalle-ficha strong {
+  color: var(--rojo);
+}
+
+.detalle-horarios {
+  margin-top: 30px;
+}
+
+.detalle-horarios h3 {
+  color: var(--rojo);
+  margin-bottom: 10px;
+}
+
+.date-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.date {
+  background: #eee;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.date:hover {
+  background: var(--rojo);
+  color: #fff;
+}
+
+.cinema-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.cinema-card h4 {
+  color: var(--rojo);
+  margin-bottom: 4px;
+}
+
+.detalle-footer {
+  text-align: center;
+  padding: 20px;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 14px;
+}
+/* BOTÓN RESERVAR */
+.btn-reservar {
+  margin-top: 16px;
+  background: var(--rojo);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background: var(--rojo-oscuro);
+  transform: translateY(-2px);
+}
+/* ==== Estado activo de selección ==== */
+button.cine.active,
+button.fecha.active,
+button.formato.active,
+button.hora.active {
+  background: var(--rojo);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(212, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}

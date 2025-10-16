@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva Boletos | CineeMax</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./reserva.css">
+</head>
+<body>
+
+  <header class="reserva-header">
+    <a href="detalle.html" class="back-link">←</a>
+    <h2>Reserva Boletos</h2>
+  </header>
+
+  <main class="reserva-container">
+    <!-- LADO IZQUIERDO -->
+    <div class="reserva-left">
+      <img id="reservaPoster" class="reserva-poster" alt="Póster">
+      <h3 id="reservaTitulo">DEMON SLAYER: KIMETSU NO YAIBA</h3>
+      <p id="reservaInfo">Acción · Animación · 2h 15min ⭐ 4.5</p>
+    </div>
+
+    <!-- LADO DERECHO -->
+    <div class="reserva-right">
+      <section class="reserva-box">
+        <h4>Seleccionar Cine</h4>
+        <div class="reserva-options">
+          <button class="cine active">
+            CineMax Centro
+            <span class="cine-info">Av. Principal 123<br><small>7.5 km</small></span>
+          </button>
+          <button class="cine">
+            CineMax Plaza Norte
+            <span class="cine-info">Centro Comercial Centro<br><small>5.4 km</small></span>
+          </button>
+          <button class="cine">
+            CineMax Sur
+            <span class="cine-info">Mall del Sur<br><small>9.2 km</small></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="reserva-box">
+        <h4>Seleccionar Fecha</h4>
+        <div class="reserva-options fecha-grid">
+          <button class="fecha">Jue<br><strong>Hoy</strong></button>
+          <button class="fecha active">Vie<br><strong>Mañana</strong></button>
+          <button class="fecha">Sáb<br><strong>24 Ago</strong></button>
+          <button class="fecha">Dom<br><strong>25 Ago</strong></button>
+          <button class="fecha">Lun<br><strong>26 Ago</strong></button>
+        </div>
+      </section>
+
+      <section class="reserva-box">
+        <h4>Seleccionar Formato y horario</h4>
+        <div class="reserva-formatos">
+          <button class="formato active">2D - Función Regular</button>
+          <button class="formato">3D</button>
+          <button class="formato">IMAX</button>
+        </div>
+        <div class="reserva-horarios">
+          <button class="hora">14:00</button>
+          <button class="hora active">16:30</button>
+          <button class="hora">19:00</button>
+          <button class="hora">21:30</button>
+        </div>
+      </section>
+
+      <div class="reserva-submit">
+        <button class="btn-asientos">Seleccionar Asientos</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="./reserva.js"></script>
+</body>
+</html>
