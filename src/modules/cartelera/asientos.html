@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seleccionar Asientos | CineMax</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link rel="stylesheet" href="asientos.css">
+</head>
+
+<body>
+    <section class="asientos" id="seccionAsientos">
+        <div class="encabezado-asientos">
+            <button id="btnVolverAsientos" class="volver">
+                <i class="ph ph-arrow-left"></i>
+            </button>
+            <h3 id="tituloAsientos">DEMON SLAYER: KIMETSU NO YAIBA</h3>
+        </div>
+
+        <div class="contenido-asientos">
+            <!-- 🪑 MAPA DE ASIENTOS -->
+            <div class="mapa-asientos">
+                <div class="leyenda">
+                    <span><i class="ph ph-armchair disponible"></i> Disponible</span>
+                    <span><i class="ph ph-armchair seleccionado"></i> Seleccionado</span>
+                    <span><i class="ph ph-armchair ocupado"></i> Ocupado</span>
+                    <span><i class="ph ph-armchair vip"></i> VIP ($25)</span>
+                    <span><i class="ph ph-armchair premium"></i> Premium ($18)</span>
+                </div>
+
+                <div class="pantalla"></div>
+                <p class="etiqueta-pantalla">PANTALLA</p>
+
+                <div class="grid-asientos" id="gridAsientos"></div>
+            </div>
+
+            <!-- 📋 PANEL DE RESUMEN -->
+            <div class="resumen">
+                <h4>Resumen</h4>
+                <p><strong>Película:</strong><br><span id="resumenPelicula">DEMON SLAYER: KIMETSU NO YAIBA</span></p>
+                <p><strong>Función:</strong><br><span id="resumenFuncion">Mañana · 16:30 - 2D</span></p>
+                <p><strong>Ubicación:</strong><br><span id="resumenUbicacion">CineMax Plaza Norte</span></p>
+                <p><strong>Asientos:</strong><br><span id="resumenAsientos">Ninguno</span></p>
+                <hr>
+                <p><strong>Total $</strong><span id="resumenTotal">0</span></p>
+                <div class="acciones-finales">
+                    <button class="continuar" id="btnConfirmarVenta">Vender</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="asientos.js"></script>
+</body>
+
+</html>

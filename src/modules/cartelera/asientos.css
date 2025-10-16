@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f6f6f6;
+  color: #111;
+}
+
+/* 🪑 SELECCIÓN DE ASIENTOS */
+.asientos {
+  padding: 30px 50px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.encabezado-asientos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volver {
+  background: none;
+  border: none;
+  color: #9b9b9b;
+  cursor: pointer;
+  font-size: 26px;
+  transition: color 0.2s ease;
+}
+
+.volver:hover {
+  color: #555;
+}
+
+.encabezado-asientos h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* CONTENIDO */
+.contenido-asientos {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* === MAPA DE ASIENTOS === */
+.mapa-asientos {
+  flex: 2;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+/* 🎨 Colores de leyenda */
+.leyenda {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 15px;
+  gap: 8px;
+}
+
+.leyenda span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.leyenda .disponible { color: #cfcfcf; }
+.leyenda .seleccionado { color: #ff6b6b; }
+.leyenda .ocupado { color: #4d4d4d; }
+.leyenda .vip { color: #d4b106; }
+.leyenda .premium { color: #e52b2b; }
+
+.pantalla {
+  width: 100%;
+  height: 6px;
+  background: #ff5959;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.etiqueta-pantalla {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.grid-asientos {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+/* === ASIENTOS === */
+.asiento {
+  font-size: 28px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.asiento.disponible { color: #cfcfcf; }
+.asiento.vip { color: #d4b106; }
+.asiento.premium { color: #e52b2b; }
+.asiento.ocupado { color: #4d4d4d; cursor: not-allowed; }
+.asiento.seleccionado { color: #ff6b6b; transform: scale(1.3); }
+
+/* === PANEL DE RESUMEN === */
+.resumen {
+  flex: 1;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.resumen h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.resumen p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.resumen hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.acciones-finales {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#btnConfirmarVenta {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #c70000;
+  color: #fff;
+  border: none;
+}
+
+#btnConfirmarVenta:hover {
+  background: #a00000;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .contenido-asientos {
+    flex-direction: column;
+  }
+}
