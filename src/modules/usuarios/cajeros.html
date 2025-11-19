@@ -1,246 +1,346 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineMax Cajero</title>
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../usuarios/usuarios.css" />
-    <!-- Íconos de Phosphor (para los sillones y otros) -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="cajero.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">CineMax Cajero</h1>
+        </div>
+        <div class="header-right">
+            <span class="welcome-text">Bienvenido, Cajero user</span>
+            <button class="btn-logout">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" y1="12" x2="9" y2="12" />
+                </svg>
+                Cerrar sesión
+            </button>
+        </div>
+    </header>
+
     <div class="container">
-        <!-- ======================================================
-         🔴 SIDEBAR
-    ====================================================== -->
         <aside class="sidebar">
-            <h2 class="logo">CineMax Cajero</h2>
-            <nav class="menu">
-                <button class="menu-btn active" onclick="window.location.href='cajeros.html'">
-                    <i class="ph ph-film-reel"></i> Ver Cartelera
+            <nav class="nav">
+                <button class="nav-btn active" data-section="cartelera">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
+                        <line x1="7" y1="2" x2="7" y2="22" />
+                        <line x1="17" y1="2" x2="17" y2="22" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                    </svg>
+                    Ver Cartelera
                 </button>
-
-                <button class="menu-btn" onclick="window.location.href='cajeros-reservas.html'">
-                    <i class="ph ph-ticket"></i> Reservas
+                <button class="nav-btn" data-section="reservas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z" />
+                        <rect x="16" y="2" width="6" height="6" />
+                    </svg>
+                    Reservas
                 </button>
-
-                <button class="menu-btn" onclick="window.location.href='consolidado.html'">
-                    <i class="ph ph-chart-bar"></i> Consolidado
+                <button class="nav-btn" data-section="boletas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                        <path d="M13 5v2" />
+                        <path d="M13 17v2" />
+                        <path d="M13 11v2" />
+                    </svg>
+                    Boletas
                 </button>
             </nav>
         </aside>
 
-        <!-- ======================================================
-         🟢 CONTENEDOR PRINCIPAL
-    ====================================================== -->
         <main class="main-content">
-
-            <!-- ======================================
-           🔹 HEADER FIJO
-      ====================================== -->
-            <header class="header">
-                <span>Bienvenido, Cajero user</span>
-                <button class="logout-btn">
-                    <i class="ph ph-sign-out"></i> Cerrar sesión
-                </button>
-            </header>
-
-            <!-- ======================================
-           🎬 CARTELERA
-      ====================================== -->
-            <section class="cartelera" id="seccionCartelera">
-                <h2>Cartelera</h2>
-                <div class="peliculas">
-                    <div class="pelicula" data-pelicula="demon">
-                        <img src="/src/assets/img/poster1.jpg" alt="Demon Slayer" />
-                        <h3>DEMON SLAYER: KIMETSU NO YAIBA</h3>
-                        <p class="genero">Acción</p>
-                        <p class="duracion">2h 15min</p>
-                        <div class="horarios">
-                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
+            <!-- Sección Cartelera -->
+            <section id="cartelera" class="section active">
+                <h2 class="section-title">Cartelera</h2>
+                <div class="movies-grid">
+                    <!-- Película 1 -->
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="/src/assets/img/poster1.jpg" alt="Demon Slayer">
                         </div>
-                        <button class="btn-vender" data-pelicula="demon">Vender Boletos</button>
+                        <div class="movie-info">
+                            <h3 class="movie-title">DEMON SLAYER: KIMETSU NO YAIBA</h3>
+                            <p class="movie-genre">Acción</p>
+                            <p class="movie-duration">2h 15min</p>
+                            <div class="hours-grid">
+                                <span class="hour">14:30</span>
+                                <span class="hour">17:00</span>
+                                <span class="hour">19:30</span>
+                                <span class="hour">22:00</span>
+                            </div>
+                            <button class="btn-sell" data-movie="demon-slayer">Vender Boletos</button>
+                        </div>
                     </div>
 
-                    <div class="pelicula" data-pelicula="dracula">
-                        <img src="/src/assets/img/poster10.jpg" alt="Dracula" />
-                        <h3>Dracula: A Love Tale</h3>
-                        <p class="genero">Acción</p>
-                        <p class="duracion">2h 15min</p>
-                        <div class="horarios">
-                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
+                    <!-- Película 2 -->
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="/src/assets/img/poster10.jpg" alt="Dracula">
                         </div>
-                        <button class="btn-vender">Vender Boletos</button>
+                        <div class="movie-info">
+                            <h3 class="movie-title">Dracula: A Love Tale</h3>
+                            <p class="movie-genre">Acción</p>
+                            <p class="movie-duration">2h 15min</p>
+                            <div class="hours-grid">
+                                <span class="hour">14:30</span>
+                                <span class="hour">17:00</span>
+                                <span class="hour">19:30</span>
+                                <span class="hour">22:00</span>
+                            </div>
+                            <button class="btn-sell" data-movie="dracula">Vender Boletos</button>
+                        </div>
                     </div>
 
-                    <div class="pelicula" data-pelicula="terror">
-                        <img src="/src/assets/img/poster4.jpg" alt="Noche de Terror" />
-                        <h3>Noche de Terror</h3>
-                        <p class="genero">Acción</p>
-                        <p class="duracion">2h 15min</p>
-                        <div class="horarios">
-                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
+                    <!-- Película 3 -->
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="/src/assets/img/poster4.jpg" alt="Noche de Terror">
                         </div>
-                        <button class="btn-vender">Vender Boletos</button>
+                        <div class="movie-info">
+                            <h3 class="movie-title">Noche de Terror</h3>
+                            <p class="movie-genre">Acción</p>
+                            <p class="movie-duration">2h 15min</p>
+                            <div class="hours-grid">
+                                <span class="hour">14:30</span>
+                                <span class="hour">17:00</span>
+                                <span class="hour">19:30</span>
+                                <span class="hour">22:00</span>
+                            </div>
+                            <button class="btn-sell" data-movie="noche-terror">Vender Boletos</button>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ======================================
-           🎟️ VENDER BOLETOS
-      ====================================== -->
-            <section class="vender oculto" id="seccionVender">
-                <div class="detalle">
-                    <div class="tarjeta-pelicula">
-                        <img id="imgPelicula" src="" alt="Poster" />
-                        <div class="info-pelicula">
-                            <h3 id="tituloPelicula"></h3>
-                            <div class="subinfo">
-                                <p class="genero">Acción</p>
-                                <p class="duracion">2h 15min</p>
-                                <span class="estrella">⭐ 4.5</span>
+            <!-- Sección Reservas -->
+            <section id="reservas" class="section">
+                <h2 class="section-title">Gestión de Reservas</h2>
+                <p class="reservas-subtitle">Conforme o cancele reservas de boletas</p>
+                
+                <!-- Búsqueda y contador -->
+                <div class="reservas-header">
+                    <input type="text" class="reservas-search" placeholder="Buscar Película o ID...">
+                    <span class="reservas-count">2 reservas</span>
+                </div>
+
+                <!-- Reservas Pendientes -->
+                <div class="reservas-section">
+                    <h3 class="reservas-section-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Reservas Pendientes
+                    </h3>
+                    <p class="reservas-section-subtitle">Estas reservas requieren confirmación o cancelación</p>
+                    
+                    <div class="reserva-card pending">
+                        <div class="reserva-content">
+                            <div class="reserva-poster">
+                                <img src="/src/assets/img/poster1.jpg" alt="Demon Slayer Kimetsu No Yaiba The Movie: Infinity Castle">
+                            </div>
+                            <div class="reserva-details">
+                                <h4 class="reserva-title">Demon Slayer Kimetsu No Yaiba The Movie: Infinity Castle</h4>
+                                <p class="reserva-date">28/8/2024 • 14:00 • Sala 1</p>
+                                
+                                <div class="reserva-info-grid">
+                                    <div class="info-item">
+                                        <span class="info-label">ID Reserva:</span>
+                                        <span class="info-value">R003</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Asientos:</span>
+                                        <span class="info-value">C8</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Total:</span>
+                                        <span class="info-value">$ 12.000</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Expira en:</span>
+                                        <span class="info-value expira">Expirada</span>
+                                    </div>
+                                </div>
+
+                                <p class="reserva-creation">Creada: 30/8/2024, 5:30:00 a. m.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reserva-actions">
+                            <button class="btn-confirmar">Confirmar</button>
+                            <button class="btn-cancelar">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reservas Confirmadas -->
+                <div class="reservas-section">
+                    <h3 class="reservas-section-title confirmed">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        Reservas Confirmadas
+                    </h3>
+                    <p class="reservas-section-subtitle">Estas reservas requieren confirmación o cancelación</p>
+                    
+                    <div class="reserva-card confirmed">
+                        <div class="reserva-content">
+                            <div class="reserva-poster">
+                                <img src="/src/assets/img/poster3.jpg" alt="Pets on a Train">
+                            </div>
+                            <div class="reserva-details">
+                                <h4 class="reserva-title">Pets on a Train</h4>
+                                <p class="reserva-date">28/8/2024 • 17:00 • Sala 1</p>
+                                
+                                <div class="reserva-info-grid">
+                                    <div class="info-item">
+                                        <span class="info-label">ID Reserva:</span>
+                                        <span class="info-value">R001</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Asientos:</span>
+                                        <span class="info-value">A5, A6</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Total:</span>
+                                        <span class="info-value">$ 20.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reserva-actions">
+                            <button class="btn-confirmada">Confirmada</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Boletas -->
+            <section id="boletas" class="section">
+                <h2 class="section-title">Boletas</h2>
+                <p class="section-text">Aquí verás las boletas vendidas</p>
+            </section>
+
+            <!-- Modal Reserva -->
+            <div id="reserva-modal" class="modal hidden">
+                <div class="modal-content">
+                    <button class="btn-back">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12" />
+                            <polyline points="12 19 5 12 12 5" />
+                        </svg>
+                        Reserva Boletos
+                    </button>
+
+                    <div class="reserva-grid">
+                        <!-- Poster Película -->
+                        <div class="reserva-poster">
+                            <img id="modal-poster" src="/src/assets/img/poster1.jpg" alt="Película">
+                            <div class="movie-details">
+                                <h3 id="modal-movie-title">Movie Title</h3>
+                                <p class="details-genre">Acción</p>
+                                <p class="details-duration">2h 15min</p>
+                                <div class="details-rating">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 10.26 24 10.27 17.18 16.70 20.09 24.99 12 18.56 3.91 24.99 6.82 16.70 0 10.27 8.91 10.26"/>
+                                    </svg>
+                                    <span>4.5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selecciones -->
+                        <div class="reserva-selections">
+                            <!-- Seleccionar Cine -->
+                            <div class="selection-group">
+                                <h4 class="selection-title">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2Z" />
+                                        <path d="M9 6h6" />
+                                        <path d="M9 18h6" />
+                                    </svg>
+                                    Seleccionar Cine
+                                </h4>
+                                <div class="cinema-options">
+                                    <button class="cinema-btn selected" data-cinema="centro">
+                                        <div class="cinema-name">CineMax Centro</div>
+                                        <div class="cinema-address">Av. Principal 123</div>
+                                        <div class="cinema-distance">3.2 km</div>
+                                    </button>
+                                    <button class="cinema-btn" data-cinema="plaza">
+                                        <div class="cinema-name">CineMax Plaza Norte</div>
+                                        <div class="cinema-address">Centro Comercial - Centro</div>
+                                        <div class="cinema-distance">5.8 km</div>
+                                    </button>
+                                    <button class="cinema-btn" data-cinema="sur">
+                                        <div class="cinema-name">CineMax Sur</div>
+                                        <div class="cinema-address">Mall Del Sur</div>
+                                        <div class="cinema-distance">8.3 km</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Seleccionar Fecha -->
+                            <div class="selection-group">
+                                <h4 class="selection-title">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                    </svg>
+                                    Seleccionar Fecha
+                                </h4>
+                                <div class="dates-grid">
+                                    <button class="date-btn" data-date="hoy">Jue<br>Hoy</button>
+                                    <button class="date-btn selected" data-date="manana">Vie<br>Mañana</button>
+                                    <button class="date-btn" data-date="sabado">Sáb<br>24 Ago</button>
+                                    <button class="date-btn" data-date="domingo">Dom<br>25 Ago</button>
+                                    <button class="date-btn" data-date="lunes">Lun<br>26 Ago</button>
+                                </div>
+                            </div>
+
+                            <!-- Seleccionar Formato y Horario -->
+                            <div class="selection-group">
+                                <h4 class="selection-title">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="1" fill="currentColor" />
+                                        <circle cx="19" cy="12" r="1" fill="currentColor" />
+                                        <circle cx="5" cy="12" r="1" fill="currentColor" />
+                                    </svg>
+                                    Seleccionar Formato y horario
+                                </h4>
+                                <div class="format-tabs">
+                                    <button class="format-tab active" data-format="2d">2D</button>
+                                    <button class="format-tab" data-format="3d">3D</button>
+                                    <button class="format-tab" data-format="imax">IMAX</button>
+                                </div>
+                                <p class="format-subtitle">2D - Función Regular</p>
+                                <div class="times-grid">
+                                    <button class="time-btn">14:00</button>
+                                    <button class="time-btn selected">16:30</button>
+                                    <button class="time-btn">19:00</button>
+                                    <button class="time-btn">21:30</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <button class="btn-select-seats">Seleccionar Asientos</button>
                 </div>
-
-                <div class="opciones">
-                    <!-- Bloque FECHA -->
-                    <div class="bloque">
-                        <div class="bloque-titulo">
-                            <i class="ph ph-calendar"></i>
-                            <h4>Seleccionar Fecha</h4>
-                        </div>
-                        <div class="grupo-fechas">
-                            <button class="fecha">Jue<br><span>Hoy</span></button>
-                            <button class="fecha activa">Vie<br><span>Mañana</span></button>
-                            <button class="fecha">Sáb<br><span>24 Ago</span></button>
-                            <button class="fecha">Dom<br><span>25 Ago</span></button>
-                            <button class="fecha">Lun<br><span>26 Ago</span></button>
-                        </div>
-                    </div>
-
-                    <!-- Bloque FORMATO Y HORARIO -->
-                    <div class="bloque">
-                        <div class="bloque-titulo">
-                            <i class="ph ph-clock"></i>
-                            <h4>Seleccionar Formato y horario</h4>
-                        </div>
-                        <div class="barra-formato">
-                            <button class="formato activo">2D</button>
-                            <button class="formato">3D</button>
-                            <button class="formato">IMAX</button>
-                        </div>
-
-                        <p class="subtitulo">2D - Función Regular</p>
-
-                        <div class="grupo-horas">
-                            <button class="hora">14:00</button>
-                            <button class="hora activa">16:30</button>
-                            <button class="hora">19:00</button>
-                            <button class="hora">21:30</button>
-                        </div>
-                    </div>
-
-                    <!-- Botones finales -->
-                    <div class="acciones">
-                        <button id="btnVolver" class="volver"><i class="ph ph-arrow-left"></i> Volver</button>
-                        <button class="continuar">Seleccionar Asientos</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ======================================
-           🪑 SELECCIONAR ASIENTOS
-      ====================================== -->
-            <section class="asientos oculto" id="seccionAsientos">
-                <div class="encabezado-asientos">
-                    <button id="btnVolverAsientos" class="volver">
-                        <i class="ph ph-arrow-left"></i>
-                    </button>
-                    <h3 id="tituloAsientos">DEMON SLAYER: KIMETSU NO YAIBA</h3>
-                </div>
-
-                <div class="contenido-asientos">
-                    <!-- 🪑 MAPA DE ASIENTOS -->
-                    <div class="mapa-asientos">
-                        <div class="leyenda">
-                            <span><i class="ph ph-armchair disponible"></i> Disponible</span>
-                            <span><i class="ph ph-armchair seleccionado"></i> Seleccionado</span>
-                            <span><i class="ph ph-armchair ocupado"></i> Ocupado</span>
-                            <span><i class="ph ph-armchair vip"></i> VIP ($25)</span>
-                            <span><i class="ph ph-armchair premium"></i> Premium ($18)</span>
-                        </div>
-
-                        <div class="pantalla"></div>
-                        <p class="etiqueta-pantalla">PANTALLA</p>
-
-                        <div class="grid-asientos" id="gridAsientos"></div>
-                    </div>
-
-                    <!-- 📋 PANEL DE RESUMEN -->
-                    <div class="resumen">
-                        <h4>Resumen</h4>
-                        <p><strong>Película:</strong><br><span id="resumenPelicula">-</span></p>
-                        <p><strong>Función:</strong><br><span id="resumenFuncion">Mañana · 16:30 - 2D</span></p>
-                        <p><strong>Ubicación:</strong><br><span id="resumenUbicacion">CineMax Plaza Norte</span></p>
-                        <p><strong>Asientos:</strong><br><span id="resumenAsientos">Ninguno</span></p>
-                        <hr>
-                        <p><strong>Total $</strong><span id="resumenTotal">0</span></p>
-                        <div class="acciones-finales">
-                            <button class="continuar" id="btnConfirmarVenta">Vender</button>
-                            <button class="volver" id="btnReservar">Reservar</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            </div>
         </main>
     </div>
 
-    <!-- ======================================================
-     💬 MODAL DE DATOS DEL CLIENTE Y PAGO
-====================================================== -->
-    <div id="modalCliente" class="modal oculto">
-        <div class="modal-content">
-            <h3>Datos del Cliente</h3>
-            <form id="formCliente">
-                <label>👤 Nombre completo</label>
-                <input type="text" id="nombreCliente" required placeholder="Ej: Juan Pérez">
-
-                <label>🪪 Cédula</label>
-                <input type="text" id="cedulaCliente" required placeholder="Ej: 1234567890">
-
-                <label>📞 Teléfono</label>
-                <input type="text" id="telefonoCliente" required placeholder="Ej: 3001234567">
-
-                <div id="bloquePago">
-                    <label>💰 Total a pagar</label>
-                    <input type="number" id="totalPagar" readonly>
-
-                    <label>💵 Efectivo recibido</label>
-                    <input type="number" id="montoRecibido" placeholder="Monto entregado">
-
-                    <label>🔁 Cambio a entregar</label>
-                    <input type="text" id="cambioCliente" readonly value="$0">
-                </div>
-
-                <div class="acciones-modal">
-                    <button type="button" id="btnCancelarModal">Cancelar</button>
-                    <button type="submit" id="btnConfirmarModal">Confirmar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="../../shared/animaciones.js"></script>
-      <script src="../../shared/logout.js"></script>
+    <script src="cajero.js"></script>
 </body>
-
 </html>
