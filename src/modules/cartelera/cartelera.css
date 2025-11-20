@@ -153,9 +153,7 @@ body.user-body {
 
 /* ================= MAIN ================= */
 .container.main-content {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
 }
 
 /* CARTELERA */
@@ -191,17 +189,15 @@ body.user-body {
 .carousel {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 24px;
-  padding: 10px;
-  scrollbar-width: thin;
+  gap: 15px;
+  padding: 20px;
 }
 
 .carousel::-webkit-scrollbar {
   height: 8px;
 }
 .carousel::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #ffffff00;
   border-radius: 4px;
 }
 
@@ -210,8 +206,8 @@ body.user-body {
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   overflow: hidden;
-  min-width: 260px;
-  max-width: 280px;
+  min-width: 300px;
+  max-width: 300px;
   flex: 0 0 auto;
   transform: scale(0.9);
   opacity: 0.6;
@@ -226,7 +222,7 @@ body.user-body {
 
 .movie-poster {
   width: 100%;
-  height: 320px;
+  height: 450px;
   object-fit: cover;
 }
 
@@ -250,7 +246,7 @@ body.user-body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(212, 0, 0, 0.9);
+  background: rgba(177, 6, 6, 0.9);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -299,12 +295,12 @@ body.user-body {
 /* ================= RECOMENDADO (ajustado a todo el ancho y altura correcta) ================= */
 .recomendado-section {
   position: relative;
-  padding: 60px 0 90px;
+  padding: 10px;
   text-align: center;
   background: linear-gradient(180deg, #d40000 0%, #7a0000 70%, #000000 100%);
   color: #fff;
-  width: 100%;
   margin: 0;
+
 }
 
 .recomendado-section::before {
@@ -312,10 +308,8 @@ body.user-body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%; /* ocupa toda la altura visible */
-  background: linear-gradient(180deg, #d40000 0%, #7a0000 70%, #000000 100%);
-  z-index: 0;
+  background: linear-gradient(180deg, #0e00d4 0%, #7a0000 70%, #000000 100%);
+
 }
 
 .recomendado-title {
