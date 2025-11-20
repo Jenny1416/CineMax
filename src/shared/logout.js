@@ -2,11 +2,8 @@
 (function () {
   const fileTarget = "file:///C:/Users/jenif/Downloads/CineMax/src/modules/index.html";
   const httpCandidates = [
-    "/src/modules/index.html",
-    "/modules/index.html",
-    "/src/index.html",
     "/index.html",
-    "/modules/usuarios/index.html"
+
   ];
 
   // Construir URLs absolutas desde origin

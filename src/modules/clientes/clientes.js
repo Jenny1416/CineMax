@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       // 1) Ruta relativa desde src/modules/clientes/ -> ../index.html (recomendado)
-      window.location.href = "../index.html";
+      window.location.href = "/index.html";
 
       // Nota: si la página fue abierta con file:// (doble clic) el navegador sí permite file://,
       // pero desde HTTP no se puede redirigir a file:// por motivos de seguridad.
