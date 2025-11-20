@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CineMax Cajero</title>
@@ -10,237 +9,421 @@
     <link rel="stylesheet" href="../usuarios/usuarios.css" />
     <!-- Íconos de Phosphor (para los sillones y otros) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- ======================================================
+      <!-- ======================================================
          🔴 SIDEBAR
     ====================================================== -->
-        <aside class="sidebar">
-            <h2 class="logo">CineMax Cajero</h2>
-            <nav class="menu">
-                <button class="menu-btn active" onclick="window.location.href='cajeros.html'">
-                    <i class="ph ph-film-reel"></i> Ver Cartelera
-                </button>
+      <aside class="sidebar">
+        <h2 class="logo">CineMax Cajero</h2>
+        <nav class="menu">
+          <button
+            class="menu-btn active"
+            onclick="window.location.href='cajeros.html'"
+          >
+            <i class="ph ph-film-reel"></i> Ver Cartelera
+          </button>
 
-                <button class="menu-btn" onclick="window.location.href='cajeros-reservas.html'">
-                    <i class="ph ph-ticket"></i> Reservas
-                </button>
+          <button
+            class="menu-btn"
+            onclick="window.location.href='cajeros-reservas.html'"
+          >
+            <i class="ph ph-ticket"></i> Reservas
+          </button>
 
-                <button class="menu-btn" onclick="window.location.href='consolidado.html'">
-                    <i class="ph ph-chart-bar"></i> Consolidado
-                </button>
-            </nav>
-        </aside>
+          <button
+            class="menu-btn"
+            onclick="window.location.href='consolidado.html'"
+          >
+            <i class="ph ph-chart-bar"></i> Consolidado
+          </button>
+        </nav>
+      </aside>
 
-        <!-- ======================================================
+      <!-- ======================================================
          🟢 CONTENEDOR PRINCIPAL
     ====================================================== -->
-        <main class="main-content">
-
-            <!-- ======================================
+      <main class="main-content">
+        <!-- ======================================
            🔹 HEADER FIJO
       ====================================== -->
-            <header class="header">
-                <span>Bienvenido, Cajero user</span>
-                <button class="logout-btn">
-                    <i class="ph ph-sign-out"></i> Cerrar sesión
-                </button>
-            </header>
+        <header class="header">
+          <span>Bienvenido, Cajero user</span>
+          <button class="logout-btn">
+            <i class="ph ph-sign-out"></i> Cerrar sesión
+          </button>
+        </header>
 
-            <!-- ======================================
+        <!-- ======================================
            🎬 CARTELERA
       ====================================== -->
-            <section class="cartelera" id="seccionCartelera">
-                <h2>Cartelera</h2>
-                <div class="peliculas">
-                    <div class="pelicula" data-pelicula="demon">
-                        <img src="/src/assets/img/poster1.jpg" alt="Demon Slayer" />
-                        <h3>DEMON SLAYER: KIMETSU NO YAIBA</h3>
-                        <p class="genero">Acción</p>
-                        <p class="duracion">2h 15min</p>
-                        <div class="horarios">
-                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
-                        </div>
-                        <button class="btn-vender" data-pelicula="demon">Vender Boletos</button>
-                    </div>
+        <section class="cartelera" id="seccionCartelera">
+          <h2>Cartelera</h2>
+          <div class="peliculas" id="listaPeliculas"></div>
+        </section>
 
-                    <div class="pelicula" data-pelicula="dracula">
-                        <img src="/src/assets/img/poster10.jpg" alt="Dracula" />
-                        <h3>Dracula: A Love Tale</h3>
-                        <p class="genero">Acción</p>
-                        <p class="duracion">2h 15min</p>
-                        <div class="horarios">
-                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
-                        </div>
-                        <button class="btn-vender">Vender Boletos</button>
-                    </div>
-
-                    <div class="pelicula" data-pelicula="terror">
-                        <img src="/src/assets/img/poster4.jpg" alt="Noche de Terror" />
-                        <h3>Noche de Terror</h3>
-                        <p class="genero">Acción</p>
-                        <p class="duracion">2h 15min</p>
-                        <div class="horarios">
-                            <span>14:30</span><span>17:00</span><span>19:30</span><span>22:00</span>
-                        </div>
-                        <button class="btn-vender">Vender Boletos</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ======================================
+        <!-- ======================================
            🎟️ VENDER BOLETOS
       ====================================== -->
-            <section class="vender oculto" id="seccionVender">
-                <div class="detalle">
-                    <div class="tarjeta-pelicula">
-                        <img id="imgPelicula" src="" alt="Poster" />
-                        <div class="info-pelicula">
-                            <h3 id="tituloPelicula"></h3>
-                            <div class="subinfo">
-                                <p class="genero">Acción</p>
-                                <p class="duracion">2h 15min</p>
-                                <span class="estrella">⭐ 4.5</span>
-                            </div>
-                        </div>
-                    </div>
+        <section class="vender oculto" id="seccionVender">
+          <div class="detalle">
+            <div class="tarjeta-pelicula">
+              <img id="imgPelicula" src="" alt="Poster" />
+              <div class="info-pelicula">
+                <h3 id="tituloPelicula"></h3>
+                <div class="subinfo">
+                  <p class="genero">Acción</p>
+                  <p class="duracion">2h 15min</p>
+                  <span class="estrella">⭐ 4.5</span>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <div class="opciones">
-                    <!-- Bloque FECHA -->
-                    <div class="bloque">
-                        <div class="bloque-titulo">
-                            <i class="ph ph-calendar"></i>
-                            <h4>Seleccionar Fecha</h4>
-                        </div>
-                        <div class="grupo-fechas">
-                            <button class="fecha">Jue<br><span>Hoy</span></button>
-                            <button class="fecha activa">Vie<br><span>Mañana</span></button>
-                            <button class="fecha">Sáb<br><span>24 Ago</span></button>
-                            <button class="fecha">Dom<br><span>25 Ago</span></button>
-                            <button class="fecha">Lun<br><span>26 Ago</span></button>
-                        </div>
-                    </div>
+          <div class="opciones">
+            <!-- Bloque FECHA -->
+            <div class="bloque">
+              <div class="bloque-titulo">
+                <i class="ph ph-calendar"></i>
+                <h4>Seleccionar Fecha</h4>
+              </div>
+              <div class="grupo-fechas">
+                <button class="fecha">Jue<br /><span>Hoy</span></button>
+                <button class="fecha activa">
+                  Vie<br /><span>Mañana</span>
+                </button>
+                <button class="fecha">Sáb<br /><span>24 Ago</span></button>
+                <button class="fecha">Dom<br /><span>25 Ago</span></button>
+                <button class="fecha">Lun<br /><span>26 Ago</span></button>
+              </div>
+            </div>
 
-                    <!-- Bloque FORMATO Y HORARIO -->
-                    <div class="bloque">
-                        <div class="bloque-titulo">
-                            <i class="ph ph-clock"></i>
-                            <h4>Seleccionar Formato y horario</h4>
-                        </div>
-                        <div class="barra-formato">
-                            <button class="formato activo">2D</button>
-                            <button class="formato">3D</button>
-                            <button class="formato">IMAX</button>
-                        </div>
+            <!-- Bloque FORMATO Y HORARIO -->
+            <div class="bloque">
+              <div class="bloque-titulo">
+                <i class="ph ph-clock"></i>
+                <h4>Seleccionar Formato y horario</h4>
+              </div>
+              <div class="barra-formato">
+                <button class="formato activo">2D</button>
+                <button class="formato">3D</button>
+                <button class="formato">IMAX</button>
+              </div>
 
-                        <p class="subtitulo">2D - Función Regular</p>
+              <p class="subtitulo">2D - Función Regular</p>
 
-                        <div class="grupo-horas">
-                            <button class="hora">14:00</button>
-                            <button class="hora activa">16:30</button>
-                            <button class="hora">19:00</button>
-                            <button class="hora">21:30</button>
-                        </div>
-                    </div>
+              <div class="grupo-horas">
+                <button class="hora">14:00</button>
+                <button class="hora activa">16:30</button>
+                <button class="hora">19:00</button>
+                <button class="hora">21:30</button>
+              </div>
+            </div>
 
-                    <!-- Botones finales -->
-                    <div class="acciones">
-                        <button id="btnVolver" class="volver"><i class="ph ph-arrow-left"></i> Volver</button>
-                        <button class="continuar">Seleccionar Asientos</button>
-                    </div>
-                </div>
-            </section>
+            <!-- Botones finales -->
+            <div class="acciones">
+              <button id="btnVolver" class="volver">
+                <i class="ph ph-arrow-left"></i> Volver
+              </button>
+              <button class="continuar">Seleccionar Asientos</button>
+            </div>
+          </div>
+        </section>
 
-            <!-- ======================================
+        <!-- ======================================
            🪑 SELECCIONAR ASIENTOS
       ====================================== -->
-            <section class="asientos oculto" id="seccionAsientos">
-                <div class="encabezado-asientos">
-                    <button id="btnVolverAsientos" class="volver">
-                        <i class="ph ph-arrow-left"></i>
-                    </button>
-                    <h3 id="tituloAsientos">DEMON SLAYER: KIMETSU NO YAIBA</h3>
-                </div>
+        <section class="asientos oculto" id="seccionAsientos">
+          <div class="encabezado-asientos">
+            <button id="btnVolverAsientos" class="volver">
+              <i class="ph ph-arrow-left"></i>
+            </button>
+            <h3 id="tituloAsientos">DEMON SLAYER: KIMETSU NO YAIBA</h3>
+          </div>
 
-                <div class="contenido-asientos">
-                    <!-- 🪑 MAPA DE ASIENTOS -->
-                    <div class="mapa-asientos">
-                        <div class="leyenda">
-                            <span><i class="ph ph-armchair disponible"></i> Disponible</span>
-                            <span><i class="ph ph-armchair seleccionado"></i> Seleccionado</span>
-                            <span><i class="ph ph-armchair ocupado"></i> Ocupado</span>
-                            <span><i class="ph ph-armchair vip"></i> VIP ($25)</span>
-                            <span><i class="ph ph-armchair premium"></i> Premium ($18)</span>
-                        </div>
+          <div class="contenido-asientos">
+            <!-- 🪑 MAPA DE ASIENTOS -->
+            <div class="mapa-asientos">
+              <div class="leyenda">
+                <span
+                  ><i class="ph ph-armchair disponible"></i> Disponible</span
+                >
+                <span
+                  ><i class="ph ph-armchair seleccionado"></i>
+                  Seleccionado</span
+                >
+                <span><i class="ph ph-armchair ocupado"></i> Ocupado</span>
+                <span><i class="ph ph-armchair vip"></i> VIP ($25)</span>
+                <span
+                  ><i class="ph ph-armchair premium"></i> Premium ($18)</span
+                >
+              </div>
 
-                        <div class="pantalla"></div>
-                        <p class="etiqueta-pantalla">PANTALLA</p>
+              <div class="pantalla"></div>
+              <p class="etiqueta-pantalla">PANTALLA</p>
 
-                        <div class="grid-asientos" id="gridAsientos"></div>
-                    </div>
+              <div class="grid-asientos" id="gridAsientos"></div>
+            </div>
 
-                    <!-- 📋 PANEL DE RESUMEN -->
-                    <div class="resumen">
-                        <h4>Resumen</h4>
-                        <p><strong>Película:</strong><br><span id="resumenPelicula">-</span></p>
-                        <p><strong>Función:</strong><br><span id="resumenFuncion">Mañana · 16:30 - 2D</span></p>
-                        <p><strong>Ubicación:</strong><br><span id="resumenUbicacion">CineMax Plaza Norte</span></p>
-                        <p><strong>Asientos:</strong><br><span id="resumenAsientos">Ninguno</span></p>
-                        <hr>
-                        <p><strong>Total $</strong><span id="resumenTotal">0</span></p>
-                        <div class="acciones-finales">
-                            <button class="continuar" id="btnConfirmarVenta">Vender</button>
-                            <button class="volver" id="btnReservar">Reservar</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
+            <!-- 📋 PANEL DE RESUMEN -->
+            <div class="resumen">
+              <h4>Resumen</h4>
+              <p>
+                <strong>Película:</strong><br /><span id="resumenPelicula"
+                  >-</span
+                >
+              </p>
+              <p>
+                <strong>Función:</strong><br /><span id="resumenFuncion"
+                  >Mañana · 16:30 - 2D</span
+                >
+              </p>
+              <p>
+                <strong>Ubicación:</strong><br /><span id="resumenUbicacion"
+                  >CineMax Plaza Norte</span
+                >
+              </p>
+              <p>
+                <strong>Asientos:</strong><br /><span id="resumenAsientos"
+                  >Ninguno</span
+                >
+              </p>
+              <hr />
+              <p><strong>Total $</strong><span id="resumenTotal">0</span></p>
+              <div class="acciones-finales">
+                <button class="continuar" id="btnConfirmarVenta">Vender</button>
+                <button class="volver" id="btnReservar">Reservar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
 
     <!-- ======================================================
      💬 MODAL DE DATOS DEL CLIENTE Y PAGO
 ====================================================== -->
     <div id="modalCliente" class="modal oculto">
-        <div class="modal-content">
-            <h3>Datos del Cliente</h3>
-            <form id="formCliente">
-                <label>👤 Nombre completo</label>
-                <input type="text" id="nombreCliente" required placeholder="Ej: Juan Pérez">
+      <div class="modal-content">
+        <h3>Datos del Cliente</h3>
+        <form id="formCliente">
+          <label>👤 Nombre completo</label>
+          <input
+            type="text"
+            id="nombreCliente"
+            required
+            placeholder="Ej: Juan Pérez"
+          />
 
-                <label>🪪 Cédula</label>
-                <input type="text" id="cedulaCliente" required placeholder="Ej: 1234567890">
+          <label>🪪 Cédula</label>
+          <input
+            type="text"
+            id="cedulaCliente"
+            required
+            placeholder="Ej: 1234567890"
+          />
 
-                <label>📞 Teléfono</label>
-                <input type="text" id="telefonoCliente" required placeholder="Ej: 3001234567">
+          <label>📞 Teléfono</label>
+          <input
+            type="text"
+            id="telefonoCliente"
+            required
+            placeholder="Ej: 3001234567"
+          />
 
-                <div id="bloquePago">
-                    <label>💰 Total a pagar</label>
-                    <input type="number" id="totalPagar" readonly>
+          <div id="bloquePago">
+            <label>💰 Total a pagar</label>
+            <input type="number" id="totalPagar" readonly />
 
-                    <label>💵 Efectivo recibido</label>
-                    <input type="number" id="montoRecibido" placeholder="Monto entregado">
+            <label>💵 Efectivo recibido</label>
+            <input
+              type="number"
+              id="montoRecibido"
+              placeholder="Monto entregado"
+            />
 
-                    <label>🔁 Cambio a entregar</label>
-                    <input type="text" id="cambioCliente" readonly value="$0">
-                </div>
+            <label>🔁 Cambio a entregar</label>
+            <input type="text" id="cambioCliente" readonly value="$0" />
+          </div>
 
-                <div class="acciones-modal">
-                    <button type="button" id="btnCancelarModal">Cancelar</button>
-                    <button type="submit" id="btnConfirmarModal">Confirmar</button>
-                </div>
-            </form>
-        </div>
+          <div class="acciones-modal">
+            <button type="button" id="btnCancelarModal">Cancelar</button>
+            <button type="submit" id="btnConfirmarModal">Confirmar</button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="../../shared/animaciones.js"></script>
-      <script src="../../shared/logout.js"></script>
-</body>
-
+    <script src="../../shared/logout.js"></script>
+  </body>
 </html>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const contenedor = document.getElementById("listaPeliculas");
+
+  try {
+    const res = await fetch("https://cinemax-backend-production.up.railway.app/peliculas");
+    const peliculas = await res.json();
+
+    // Guardar cache globalmente para fallback cuando el endpoint por id no responda
+    window.peliculasCache = Array.isArray(peliculas) ? peliculas : [];
+
+    if (!Array.isArray(peliculas)) return;
+
+    peliculas.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "pelicula";
+
+      // Horarios (quemados por ahora, luego los hacemos dinámicos)
+      const horarios = `
+        <div class="horarios">
+          <span>14:30</span><span>17:00</span>
+          <span>19:30</span><span>22:00</span>
+        </div>
+      `;
+
+      div.innerHTML = `
+        <img src="${p.poster}" alt="${p.titulo}">
+        <h3>${p.titulo}</h3>
+        <p class="genero">${p.genero}</p>
+        <p class="duracion">${p.duracion}</p>
+        ${horarios}
+        <button class="btn-vender" data-id="${p._id}">Vender Boletos</button>
+      `;
+
+      contenedor.appendChild(div);
+    });
+
+    // Activar los botones de vender
+    activarBotones();
+
+  } catch (err) {
+    console.error("❌ Error cargando cartelera:", err);
+  }
+});
+
+function activarBotones() {
+  document.querySelectorAll(".btn-vender").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const id = e.target.dataset.id;
+      abrirVenta(id);
+    });
+  });
+}
+
+// Guarda la película actualmente seleccionada
+let peliculaActual = null;
+
+async function abrirVenta(id) {
+  try {
+    const url = `https://cinemax-backend-production.up.railway.app/peliculas/${id}`;
+    const res = await fetch(url);
+    let p;
+    if (res.ok) {
+      p = await res.json();
+    } else {
+      // Intentar usar la caché local si el endpoint por id no está disponible
+      console.warn(`Endpoint /peliculas/${id} devolvió estado ${res.status}. Intentando caché local.`);
+      p = window.peliculasCache?.find(x => x._id === id);
+      if (!p) throw new Error('Película no encontrada en backend ni en caché');
+    }
+    peliculaActual = p;
+
+    // Rellenar datos en la sección Vender
+    const img = document.getElementById('imgPelicula');
+    const titulo = document.getElementById('tituloPelicula');
+    const generoEl = document.querySelector('#seccionVender .info-pelicula .genero');
+    const duracionEl = document.querySelector('#seccionVender .info-pelicula .duracion');
+    const estrellaEl = document.querySelector('#seccionVender .info-pelicula .estrella');
+
+    if (img) img.src = p.poster || '';
+    if (titulo) titulo.textContent = p.titulo || '-';
+    if (generoEl) generoEl.textContent = p.genero || '-';
+    if (duracionEl) duracionEl.textContent = p.duracion || '-';
+    if (estrellaEl) estrellaEl.textContent = p.calificacion ? `⭐ ${p.calificacion}` : '⭐ -';
+
+    // Actualizar resumen lateral
+    const resumenPelicula = document.getElementById('resumenPelicula');
+    if (resumenPelicula) resumenPelicula.textContent = p.titulo || '-';
+
+    // Mostrar la sección Vender y ocultar Cartelera
+    document.getElementById('seccionCartelera').classList.add('oculto');
+    const vender = document.getElementById('seccionVender');
+    vender.classList.remove('oculto');
+    vender.dataset.peliculaId = id;
+
+    // Conectar botón "Seleccionar Asientos" de esta sección (selector específico)
+    const btnSeleccionar = document.querySelector('#seccionVender .opciones .acciones .continuar');
+    if (btnSeleccionar) {
+      btnSeleccionar.onclick = () => abrirAsientos();
+    }
+
+    // Botón volver dentro de Vender
+    const btnVolver = document.getElementById('btnVolver');
+    if (btnVolver) {
+      btnVolver.onclick = () => {
+        document.getElementById('seccionCartelera').classList.remove('oculto');
+        vender.classList.add('oculto');
+      };
+    }
+
+  } catch (err) {
+    console.error('❌ Error cargando película:', err);
+    // Intentar fallback con la caché global si existe
+    const fallback = window.peliculasCache?.find(x => x._id === id);
+    if (fallback) {
+      console.warn('Usando fallback desde peliculasCache');
+      peliculaActual = fallback;
+      const img = document.getElementById('imgPelicula');
+      const titulo = document.getElementById('tituloPelicula');
+      const generoEl = document.querySelector('#seccionVender .info-pelicula .genero');
+      const duracionEl = document.querySelector('#seccionVender .info-pelicula .duracion');
+      const estrellaEl = document.querySelector('#seccionVender .info-pelicula .estrella');
+      if (img) img.src = fallback.poster || '';
+      if (titulo) titulo.textContent = fallback.titulo || '-';
+      if (generoEl) generoEl.textContent = fallback.genero || '-';
+      if (duracionEl) duracionEl.textContent = fallback.duracion || '-';
+      if (estrellaEl) estrellaEl.textContent = fallback.calificacion ? `⭐ ${fallback.calificacion}` : '⭐ -';
+      const resumenPelicula = document.getElementById('resumenPelicula');
+      if (resumenPelicula) resumenPelicula.textContent = fallback.titulo || '-';
+      document.getElementById('seccionCartelera').classList.add('oculto');
+      const vender = document.getElementById('seccionVender');
+      vender.classList.remove('oculto');
+      vender.dataset.peliculaId = id;
+      const btnSeleccionar = document.querySelector('#seccionVender .opciones .acciones .continuar');
+      if (btnSeleccionar) btnSeleccionar.onclick = () => abrirAsientos();
+      return;
+    }
+
+    alert('No se pudo cargar la información de la película. Revisa la consola para más detalles.');
+  }
+}
+
+function abrirAsientos() {
+  // Mostrar sección de asientos
+  document.getElementById('seccionVender').classList.add('oculto');
+  const asientos = document.getElementById('seccionAsientos');
+  asientos.classList.remove('oculto');
+
+  // Rellenar título y resumen con la película actual
+  const tituloAsientos = document.getElementById('tituloAsientos');
+  if (tituloAsientos) tituloAsientos.textContent = peliculaActual?.titulo || '-';
+  const resumenPelicula = document.getElementById('resumenPelicula');
+  if (resumenPelicula) resumenPelicula.textContent = peliculaActual?.titulo || '-';
+
+  // Conectar botón "volver" desde la vista de asientos para regresar a Vender
+  const btnVolverAsientos = document.getElementById('btnVolverAsientos');
+  if (btnVolverAsientos) {
+    btnVolverAsientos.onclick = () => {
+      asientos.classList.add('oculto');
+      document.getElementById('seccionVender').classList.remove('oculto');
+    };
+  }
+}
+</script>
